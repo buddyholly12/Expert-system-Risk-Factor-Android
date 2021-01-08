@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Skripsi</string>
+    <string name="passwords">Password</string>
+    <string name="email">email</string>
+    <string name="Registers">Register</string>
+    <string name="Start">Start Test</string>
+    <string name="Tips">TipsAndTrick</string>
+    <string name="BmiCal">BmiCalculator</string>
+    <string name="history">History</string>
+</resources>

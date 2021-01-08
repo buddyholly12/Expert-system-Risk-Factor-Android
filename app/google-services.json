@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "750199320909",
+    "firebase_url": "https://skripsi-db-risk-factor-default-rtdb.firebaseio.com",
+    "project_id": "skripsi-db-risk-factor",
+    "storage_bucket": "skripsi-db-risk-factor.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:750199320909:android:c4a7e3e03a1c44ce4cc704",
+        "android_client_info": {
+          "package_name": "com.fileskripsi.skripsi"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "750199320909-8c36gg57t81n0tp168idfkr3ug08df14.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBxq6-UvGN3oOiV42QlWppbZVMK-g7fn4Y"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "750199320909-8c36gg57t81n0tp168idfkr3ug08df14.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

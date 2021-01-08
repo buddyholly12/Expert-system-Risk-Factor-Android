@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".LoginRegistUI.loginRegist"
+    android:orientation="vertical"
+    android:scrollbarAlwaysDrawVerticalTrack="true"
+    android:background="#24D1DC">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="70dp"
+        android:layout_marginRight="30dp"
+        android:background="@drawable/rounded_theme"
+        android:elevation="4dp"
+        android:orientation="vertical"
+        android:padding="50dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:orientation="vertical"
+                android:textAlignment="center"
+                android:background="#fff"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <EditText
+                    android:id="@+id/email"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:hint="@string/email"
+                    android:inputType="textPersonName" />
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:orientation="vertical"
+                android:paddingTop="30dp"
+                android:textAlignment="center">
+
+                <EditText
+                    android:id="@+id/Passwords"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:hint="@string/passwords"
+                    android:inputType="textPassword" />
+
+            </androidx.cardview.widget.CardView>
+
+            <Button
+                android:id="@+id/btn_login"
+                android:layout_marginTop="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_gravity="center_horizontal"
+                android:text="Login "
+                android:background="@drawable/rounded_button"/>
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="613dp">
+
+
+        <Button
+            android:id="@+id/btn_Register"
+            android:layout_width="match_parent"
+            android:layout_height="58dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginStart="64dp"
+            android:layout_marginTop="29dp"
+            android:layout_marginEnd="64dp"
+            android:text="Register"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/google_login"
+            android:background="@drawable/rounded_button"/>
+
+        <Button
+            android:id="@+id/google_login"
+            android:layout_width="match_parent"
+            android:layout_height="58dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginStart="64dp"
+            android:layout_marginTop="394dp"
+            android:layout_marginEnd="64dp"
+            android:text="Login With google"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:background="@drawable/rounded_button"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</RelativeLayout>

@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:scrollbarAlwaysDrawVerticalTrack="true"
+    android:background="#24D1DC"
+    tools:context=".RegistUI.RegistUI">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="70dp"
+        android:layout_marginRight="30dp"
+        android:background="@drawable/rounded_theme"
+        android:elevation="4dp"
+        android:orientation="vertical"
+        android:padding="50dp"
+        android:id="@+id/relativeUI">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <EditText
+                android:id="@+id/displayName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Display Name"/>
+
+            <EditText
+                android:id="@+id/status"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Status"/>
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:orientation="vertical"
+                android:textAlignment="center"
+                android:background="#fff"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <EditText
+                    android:id="@+id/email"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:hint="@string/email"
+                    android:inputType="textPersonName" />
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:orientation="vertical"
+                android:paddingTop="30dp"
+                android:textAlignment="center">
+
+                <EditText
+                    android:id="@+id/Password"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:hint="@string/passwords"
+                    android:inputType="textPassword" />
+
+            </androidx.cardview.widget.CardView>
+
+            <Button
+                android:id="@+id/Register_session"
+                android:layout_marginTop="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_gravity="center_horizontal"
+                android:text="@string/Registers"
+                android:background="@drawable/rounded_button"/>
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+
+</RelativeLayout>
