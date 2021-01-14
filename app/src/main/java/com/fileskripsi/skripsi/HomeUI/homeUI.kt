@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.util.Log
 import com.fileskripsi.skripsi.LoginRegistUI.loginRegist
 import com.fileskripsi.skripsi.R
+import com.fileskripsi.skripsi.Test_Ui.TestUI
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.database.*
@@ -40,6 +41,10 @@ class homeUI : AppCompatActivity() {
             startActivity(Intent)
         }
         getdata()
+        Start_test.setOnClickListener{
+            val Intent =Intent(this@homeUI,TestUI::class.java)
+            startActivity(Intent)
+        }
     }
 
 

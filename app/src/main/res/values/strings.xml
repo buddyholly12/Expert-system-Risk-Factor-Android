@@ -7,4 +7,21 @@
     <string name="Tips">TipsAndTrick</string>
     <string name="BmiCal">BmiCalculator</string>
     <string name="history">History</string>
+    <string name="A1">Tidak</string>
+    <string name="A2">Ya</string>
+    <string name="A3">Lebih dari 10 Batang per hari </string>
+    <string name="A4">Laki-Laki </string>
+    <string name="A5">Perempuan </string>
+    <string name="A6">Ya</string>
+    <string name="A7">Tidak</string>
+    <string name="Ldl">Masukkan kadar lemak (LDl)</string>
+    <string name="tensi">Masukkan tekanan darah (Systole)</string>
+    <string name="umur">umur</string>
+    <string name="tinggi">Inputkan Tinggi</string>
+    <string name="beratbadan">Inputkan berat badan</string>
+    <string name="Olaharaga1">Rutin</string>
+    <string name="Olaharaga2">Jarang</string>
+    <string name="Olaharaga3">Tidak pernah </string>
+    <string name="if1">Jika ya ,Masukkan jumlah </string>
+    <string name="gender">Laki-laki/Perempuan</string>>
 </resources>
