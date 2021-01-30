@@ -148,6 +148,9 @@ class TestUI : AppCompatActivity(), View.OnClickListener {
         val result1 = StringBuilder()
         val result2 = StringBuilder()
         val result3 = StringBuilder()
+        val cf1 = 1
+        val cf2 = 0.8
+        val cf3 = 0.4
         val ref = FirebaseDatabase.getInstance().getReference("User_ans")
         if (chb.isChecked) {
             result.append("\nTidak")
@@ -197,35 +200,8 @@ class TestUI : AppCompatActivity(), View.OnClickListener {
         Log.d("Test", jawabanUser.Ldl)
         Log.d("Test", jawabanUser.Tensi)
 
-        if (datauser != null) {
-            if (taskid != null) {
-                ref.child(datauser.toString()).child(taskid).setValue(jawabanUser)
-            }
-
-        }
-
         val result4 = StringBuilder()
-        val ref1 = database.getReference("/Database_Risk_Factor/Answer_score")
-        ref1.addListenerForSingleValueEvent(object :ValueEventListener{
-            override fun onDataChange(snapshot: DataSnapshot) {
-                for (data in snapshot.children) {
-                    if (data.child("ID_Question").getValue() == "Q1") {
-                        if (data.child("ID_jawaban").getValue() == "A1") {
-                           if (data.child("nama_Jawaban").getValue() == jawabanUser.Smoke)
-                           {
-                                
-                           }
 
-                        }
-                    }
-                }
-            }
-
-            override fun onCancelled(error: DatabaseError) {
-                TODO("Not yet implemented")
-            }
-
-        })
     }
 
 
