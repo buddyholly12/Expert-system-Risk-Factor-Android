@@ -12,7 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Skripsi"
         android:usesCleartextTraffic="true">
-        <activity android:name=".Test_Ui.TestUI"></activity>
+        <activity android:name=".Test_Ui.Backward_Session.Rendah_Backward"></activity>
+        <activity android:name=".History.History_data" />
+        <activity android:name=".Test_Ui.TestUI" />
         <activity android:name=".HomeUI.homeUI" />
         <activity android:name=".RegistUI.RegistUI" />
         <activity android:name=".LoginRegistUI.loginRegist" />

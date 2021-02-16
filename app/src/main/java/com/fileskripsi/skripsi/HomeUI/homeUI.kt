@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import com.fileskripsi.skripsi.History.History_data
 import com.fileskripsi.skripsi.LoginRegistUI.loginRegist
 import com.fileskripsi.skripsi.R
 import com.fileskripsi.skripsi.Test_Ui.TestUI
@@ -43,6 +44,11 @@ class homeUI : AppCompatActivity() {
         getdata()
         Start_test.setOnClickListener{
             val Intent =Intent(this@homeUI,TestUI::class.java)
+            startActivity(Intent)
+        }
+
+        button2.setOnClickListener{
+            val Intent = Intent(this@homeUI,History_data::class.java)
             startActivity(Intent)
         }
     }
