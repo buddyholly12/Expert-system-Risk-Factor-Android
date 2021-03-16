@@ -10,13 +10,12 @@ import android.widget.EditText
 import android.widget.RadioButton
 import androidx.core.util.rangeTo
 import androidx.core.view.isGone
-import com.fileskripsi.skripsi.AnswerSheets
+import com.fileskripsi.skripsi.Data_class_Value.AnswerSheets
 import com.fileskripsi.skripsi.CF_data.Cf_Class
 import com.fileskripsi.skripsi.CF_data.Cf_hitung
 import com.fileskripsi.skripsi.R
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
-import kotlinx.android.synthetic.main.activity_home_u_i.*
 import kotlinx.android.synthetic.main.activity_test_u_i.*
 import kotlin.math.roundToInt
 
@@ -196,7 +195,7 @@ class TestUI : AppCompatActivity(), View.OnClickListener {
         val nlistcfcombineTinggi = mutableListOf<Double>()
         val Nlist_combine = mutableListOf<Double>()
         var nlist = mutableListOf<Double>()
-        val listCF_Rendah = listOf<Double>(0.8, 0.8, 0.8, 0.8, 0.8, -1.0, 1.0, 0.8, 1.0)
+        val listCF_Rendah = listOf<Double>(0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.6, 0.8, 0.8)
         val listCF_Sedang = listOf<Double>(0.4, 0.6, 0.6, 0.6, 1.0, -1.0, 1.0, 0.6, 0.6)
         val listCF_Tinggi = listOf<Double>(1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0)
 
@@ -284,24 +283,24 @@ class TestUI : AppCompatActivity(), View.OnClickListener {
         // gender
         if (radioButton4.isChecked) {
             result1.append("Laki-laki")
-            val A16 = 1.0
+            val A16 = 0.8
             nlist.add(A16)
 
         }
         if (radioButton5.isChecked) {
             result1.append("Perempuan")
-            val A17 = -1.0
+            val A17 = 0.6
             nlist.add(A17)
         }
         //riwayat diabetes
         if (radioButton6.isChecked) {
             result2.append("Tidak")
-            val A18 = 1.0
+            val A18 = 0.6
             nlist.add(A18)
         }
         if (radioButton7.isChecked) {
             result2.append("Ya")
-            val A19 = -1.0
+            val A19 = 0.4
             nlist.add(A19)
         }
 
@@ -325,12 +324,12 @@ class TestUI : AppCompatActivity(), View.OnClickListener {
         // tingkat stress
         if (radioButton11.isChecked) {
             result4.append("Tidak")
-            val A24 = 1.0
+            val A24 = 0.6
             nlist.add(A24)
         }
         if (radioButton12.isChecked) {
             result4.append("ya")
-            val A23 = -1.0
+            val A23 = 0.4
             nlist.add(A23)
         }
 
@@ -342,10 +341,11 @@ class TestUI : AppCompatActivity(), View.OnClickListener {
             AnswerSheets("", jumlah_batang, LDL, Data_Tensi,bmi1.toDouble(),dataumur,result1.toString(),  result2.toString(), result3.toString(),result4.toString(), 0.0)
         }
 
-        answerSheets1.add(jawabanUser)
+        //answerSheets1.add(jawabanUser)
 
-        Log.d("Test", answerSheets1.toString())
+       // Log.d("Test", answerSheets1.toString())
         Log.d("Test", jawabanUser.smoke_qty)
+        Log.d("Test", jawabanUser.Smoke.toString())
         Log.d("Test", jawabanUser.Ldl.toString())
         Log.d("Test", jawabanUser.Tensi.toString())
 
@@ -353,7 +353,6 @@ class TestUI : AppCompatActivity(), View.OnClickListener {
         val X = Cf_hitung(nlist[0],nlist[1],nlist[2],nlist[3],nlist[4],nlist[5],nlist[6],nlist[7],nlist[8])
         Log.d("Test", X.toString())
         Log.d("Test", nlist.toString())
-        Log.d("Test", answerSheets1.toString())
 
 
         for (i in nlist.indices) {
@@ -392,16 +391,24 @@ class TestUI : AppCompatActivity(), View.OnClickListener {
                     dataCombine8 = nlistcfcombinerendah[8] + dataCombine7 * (1 - nlistcfcombinerendah[8])
                     val x = Cf_Class(dataCombine, dataCombine1, dataCombine2, dataCombine3, dataCombine4, dataCombine5, dataCombine6, dataCombine7, dataCombine8)
                     val datalist = (x.cf1 + x.cf2 + x.cf3 + x.cf4 + x.cf5 + x.cf6 + x.cf7 + x.cf8 + x.cf9) / 9 * 100
-                    datalist.roundToInt()
+                    val data = datalist.roundToInt()
                     CF_list.add(x)
                     val jawabanUser = AnswerSheets(result.toString(), jumlah_batang, LDL, Data_Tensi, bmi1.toDouble(),dataumur, result1.toString(),result2.toString(),
-                        result3.toString(), result4.toString(),datalist)
+                        result3.toString(), result4.toString(),data.toDouble())
+                    answerSheets1.add(jawabanUser)
                     Log.d("CF_list", CF_list.toString())
-                    Log.d("datalist", datalist.toString())
-                    if (taskid != null) {
-                        ref1.child(datauser.toString()).child(taskid).setValue(jawabanUser)
-                    }
+                    Log.d("datalist", data.toDouble().toString())
+                    Log.d("datalist", answerSheets1.toString())
+
+
+
+
+//                    if (taskid != null) {
+//                        ref1.child(datauser.toString()).child(taskid).setValue(jawabanUser)
+//                    }
+
                 }
+
             }
 
         }
@@ -447,9 +454,9 @@ class TestUI : AppCompatActivity(), View.OnClickListener {
                     CF_list.add(x)
                     Log.d("CF_list", CF_list.toString())
                     Log.d("datalist", datalist.toString())
-                    if (taskid != null) {
-                        ref.child(taskid).child(data.toString()).setValue(jawabanUser)
-                    }
+//                    if (taskid != null) {
+//                        ref.child(taskid).child(data.toString()).setValue(jawabanUser)
+//                    }
                 }
             }
         }

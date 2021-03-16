@@ -3,19 +3,12 @@ package com.fileskripsi.skripsi.HomeUI
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import com.fileskripsi.skripsi.History.History_data
 import com.fileskripsi.skripsi.LoginRegistUI.loginRegist
 import com.fileskripsi.skripsi.R
-import com.fileskripsi.skripsi.Test_Ui.TestUI
+import com.fileskripsi.skripsi.Backward_Session.Menu_test
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.database.*
-import com.google.firebase.firestore.DocumentSnapshot
-import com.google.firebase.firestore.FirebaseFirestore
-import com.google.firebase.firestore.auth.User
-import com.google.firebase.firestore.ktx.getField
-import com.google.firebase.ktx.Firebase
 import kotlinx.android.synthetic.main.activity_home_u_i.*
 
 
@@ -43,7 +36,7 @@ class homeUI : AppCompatActivity() {
         }
         getdata()
         Start_test.setOnClickListener{
-            val Intent =Intent(this@homeUI,TestUI::class.java)
+            val Intent =Intent(this@homeUI, Menu_test::class.java)
             startActivity(Intent)
         }
 
