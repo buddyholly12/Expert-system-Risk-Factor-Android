@@ -14,6 +14,7 @@ import kotlinx.android.synthetic.main.activity_login_regist.*
 
 class loginRegist : AppCompatActivity() {
     private lateinit var auth: FirebaseAuth
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login_regist)
@@ -39,6 +40,7 @@ class loginRegist : AppCompatActivity() {
             if (task.isSuccessful){
                 val Home = Intent(this@loginRegist, homeUI::class.java)
                 startActivity(Home)
+
             }
             else{
                 Log.e("Task message ", "Failed Login"+task.exception);
@@ -46,4 +48,6 @@ class loginRegist : AppCompatActivity() {
         }
 
     }
+
+
 }

@@ -25,7 +25,7 @@
     <string name="if1">Jika ya ,Masukkan jumlah </string>
     <string name="gender">Laki-laki/Perempuan</string>>
 
-    <string-array name="CF_Data">
+    <string-array name="CF_list">
         <item>0.0</item>
         <item>0.4</item>
         <item>0.6</item>
