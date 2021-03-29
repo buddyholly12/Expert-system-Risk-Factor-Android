@@ -7,10 +7,11 @@
     tools:context=".Res_test"
     android:background="#24D1DC"
     >
+
     <RelativeLayout
         android:id="@+id/relatives"
-        android:layout_width="378dp"
-        android:layout_height="wrap_content"
+        android:layout_width="381dp"
+        android:layout_height="417dp"
         android:layout_marginLeft="30dp"
         android:layout_marginTop="70dp"
         android:layout_marginRight="30dp"
@@ -20,21 +21,196 @@
         android:padding="50dp">
 
         <LinearLayout
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/Tv_hasil"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="TextView" />
+            <TableLayout
+                android:layout_width="500dp"
+                android:layout_height="match_parent"
+                android:shrinkColumns="*">
 
-            <TextView
-                android:id="@+id/Tv_hasil1"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="TextView" />
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="4dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="16dp"
+                        android:text="Hasil Diagnosa :"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+                </TableRow>
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="4dp">
+
+                <TextView
+                        android:id="@+id/Tv_hasil"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="70dp"
+                        android:fontFamily="sans-serif-condensed"
+                        android:paddingEnd="90dp"
+                        android:text="TextView"
+                        android:textSize="14sp" />
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="16dp"
+                        android:text="CERTAINTY FACTOR :"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="4dp">
+
+                    <TextView
+                        android:id="@+id/Tv_hasil1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="TextView"
+                        android:textSize="16sp" />
+                </TableRow>
+
+
+
+
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="16dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="14dp"
+                        android:text="DESKRIPSI :"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+                </TableRow>
+
+
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="16dp">
+                    <TextView
+                        android:id="@+id/Tv_hasil2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="14dp"
+                        android:text="TextView"
+                        android:textSize="18sp" />
+                </TableRow>
+
+
+
+
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="8dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="16dp"
+                        android:text="PENCEGAHAN :"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+
+                </TableRow>
+
+
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="16dp">
+
+                    <TextView
+                        android:id="@+id/Tv_hasil3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="16dp"
+                        android:text="TextView"
+                        android:textSize="18sp" />
+                </TableRow>
+
+
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="8dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="16dp"
+                        android:text="PENGOBATAN :"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+                </TableRow>
+
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="8dp">
+
+                    <TextView
+                        android:id="@+id/Tv_hasil4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="16dp"
+                        android:text="TextView"
+                        android:textSize="18sp" />
+                </TableRow>
+
+
+
+            </TableLayout>
         </LinearLayout>
+
+
     </RelativeLayout>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <Button
+            android:id="@+id/backtombol"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="138dp"
+            android:layout_marginTop="504dp"
+            android:layout_marginEnd="139dp"
+            android:fontFamily="sans-serif-medium"
+            android:paddingHorizontal="40dp"
+            android:text="Back to menu "
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
 </RelativeLayout>

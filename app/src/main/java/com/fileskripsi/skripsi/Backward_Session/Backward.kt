@@ -28,36 +28,20 @@ class Backward {
         if (smoke_qty.isEmpty()) {
             if (Smoke == "Tidak" && Gender == "Perempuan") {
                 flag
-            }else {
-                val results = "jawaban anda kurang sesuai "
-                sb.append(results)
             }
             if(Ldl < 75 && Tensi <= 120)
             {
                 flag
-            }else {
-                val results = "jawaban anda kurang sesuai "
-                sb.append(results)
             }
             if (bmi in 18.5 rangeTo (24.9) && Umur <= 40) {
                 flag
-            }else {
-                val results = "jawaban anda kurang sesuai "
-                sb.append(results)
             }
             if (Sport == "Rutin" && diabetes == "Tidak") {
                 flag
-            }else {
-                val results = "jawaban anda kurang sesuai "
-                sb.append(results)
             }
             if (stressval == "Tidak" && Cf<= 62.0) {
                 flag
                 val results = "Anda memiliki resiko rendah"
-                sb.append(results)
-
-            } else {
-                val results = "jawaban anda kurang sesuai "
                 sb.append(results)
             }
             println(sb.toString())
@@ -67,13 +51,15 @@ class Backward {
             val results = "jawaban anda kurang sesuai "
             sb.append(results)
             println(sb.toString())
+
         }
-        val taskid = ref.push().key
+        val data = "data ke 1"
+        val taskid = ref1.push().key
         if (taskid!=null)
         {
-            val dataBackward = AnswerSheets(Smoke,smoke_qty,Ldl,Tensi,bmi,Umur,Gender,diabetes,Sport,stressval,Cf,sb.toString())
+            Log.d("test",taskid)
+            val dataBackward = AnswerSheets(taskid.toString(),Smoke,smoke_qty,Ldl,Tensi,bmi,Umur,Gender,diabetes,Sport,stressval,Cf,sb.toString())
             ref1.child(datauser.toString()).child(taskid).setValue(dataBackward)
-
         }
 
     }

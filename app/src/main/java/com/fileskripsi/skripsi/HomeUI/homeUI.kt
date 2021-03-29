@@ -78,9 +78,5 @@ class homeUI : AppCompatActivity() {
 
     }
 
-    override fun onResume() {
-        super.onResume()
-        getdata()
-    }
 
 }

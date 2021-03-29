@@ -1,8 +1,11 @@
 package com.fileskripsi.skripsi
 
-import androidx.appcompat.app.AppCompatActivity
+import android.annotation.SuppressLint
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import androidx.appcompat.app.AppCompatActivity
+import com.fileskripsi.skripsi.HomeUI.homeUI
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
 import kotlinx.android.synthetic.main.activity_home_u_i.*
@@ -23,27 +26,43 @@ class Res_test : AppCompatActivity() {
         auth = FirebaseAuth.getInstance();
         database = FirebaseDatabase.getInstance()
         val taskid = databaseReference?.push()?.key
-        databaseReference = database?.reference!!.child("Client_Ans")
+        databaseReference = database?.reference!!.child("Client_Ans/")
         view_hasil()
+        backtombol.setOnClickListener({
+            val Intent = Intent(this@Res_test,homeUI::class.java)
+            startActivity(Intent)
+            finish()
+        })
     }
+
     private fun view_hasil(){
+        val taskid = databaseReference?.push()!!.key
+        val taskid2 = databaseReference
         val user = auth.currentUser
-        val userreference = databaseReference?.child(user?.uid!!)
-        val taskid = databaseReference?.push()?.key
+        var userreference = databaseReference?.child(user?.uid.toString())
+        //var dataref = databaseReference?.child(taskid2.toString())
 
-        userreference?.child(taskid.toString())?.addValueEventListener(object: ValueEventListener{
+        Log.d("dbref",databaseReference.toString())
+
+            userreference?.addListenerForSingleValueEvent(object : ValueEventListener{
             override fun onDataChange(snapshot: DataSnapshot) {
+                Log.d("test1", snapshot.toString())
 
-                Tv_hasil.text = snapshot.child("hasil_backward").value.toString()
+                //Log.d("test",Tv_hasil.toString())
+                for (data in snapshot.children)
+                {
+                    Tv_hasil.text=data.child("hasil_backward").value.toString()
+                    Tv_hasil1.text=data.child("cf").value.toString()
+                }
+                Log.d("test data",snapshot.value.toString())
 
             }
-
             override fun onCancelled(error: DatabaseError) {
                 TODO("Not yet implemented")
             }
         })
+        }
 
-    }
 
 
 }
