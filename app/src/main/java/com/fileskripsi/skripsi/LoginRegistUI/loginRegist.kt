@@ -34,6 +34,14 @@ class loginRegist : AppCompatActivity() {
             }
 
         }
+
+        val currusr = auth.currentUser
+        if (currusr!= null)
+        {
+            val Home = Intent(this@loginRegist, homeUI::class.java)
+            startActivity(Home)
+
+        }
     }
     private fun loginfunction(email:String,Password:String){
         auth.signInWithEmailAndPassword(email,Password).addOnCompleteListener(this) { task->
@@ -46,6 +54,13 @@ class loginRegist : AppCompatActivity() {
                 Log.e("Task message ", "Failed Login"+task.exception);
             }
         }
+
+    }
+
+    override fun onRestart() {
+        super.onRestart()
+        val Home = Intent(this@loginRegist, homeUI::class.java)
+        startActivity(Home)
 
     }
 

@@ -1,5 +1,6 @@
 package com.fileskripsi.skripsi.Test_Ui
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -9,11 +10,13 @@ import androidx.core.util.rangeTo
 import androidx.core.view.isGone
 import androidx.databinding.DataBindingUtil
 import com.fileskripsi.skripsi.Backward_Session.Backward
+import com.fileskripsi.skripsi.Backward_Session.Menu_test
 import com.fileskripsi.skripsi.CF_data.CF_Val
 import com.fileskripsi.skripsi.Data_class_Value.AnswerSheets
 import com.fileskripsi.skripsi.CF_data.Cf_Class
 import com.fileskripsi.skripsi.CF_data.Cf_hitung
 import com.fileskripsi.skripsi.R
+import com.fileskripsi.skripsi.Res_test
 import com.fileskripsi.skripsi.databinding.ActivityTestUIBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
@@ -44,9 +47,10 @@ class TestUI : AppCompatActivity(), View.OnClickListener, AdapterView.OnItemSele
     lateinit var auth: FirebaseAuth
     var databaseReference :  DatabaseReference? = null
     private lateinit var  binding:ActivityTestUIBinding
-
+    lateinit var hasil : List<Double>
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        supportActionBar?.hide()
         setContentView(R.layout.activity_test_u_i)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_test_u_i)
         database = FirebaseDatabase.getInstance()
@@ -146,6 +150,10 @@ class TestUI : AppCompatActivity(), View.OnClickListener, AdapterView.OnItemSele
     }
     // answer_Buffer
     private fun answerSheets_data() {
+        auth = FirebaseAuth.getInstance()
+        val user = auth.currentUser
+        val userreference = databaseReference?.child(user?.uid!!)
+        val datauser = user?.uid
         jumlahbtg = findViewById(R.id.jumlah)
         LDl = findViewById(R.id.ldl_score)
         Tensi = findViewById(R.id.Tensi)
@@ -308,19 +316,16 @@ class TestUI : AppCompatActivity(), View.OnClickListener, AdapterView.OnItemSele
         }
 
 
-        val taskid = ref.push().key
-        val jawabanUser = AnswerSheets(result.toString(), jumlah_batang, LDL, Data_Tensi, bmi1.toDouble(),dataumur, result1.toString(),result2.toString(), result3.toString(), result4.toString())
-        if (jawabanUser.Smoke == null) {
-            AnswerSheets("", jumlah_batang, LDL, Data_Tensi,bmi1.toDouble(),dataumur,result1.toString(),  result2.toString(), result3.toString(),result4.toString())
-        }
-        Backward().backward(jawabanUser.Smoke,jawabanUser.smoke_qty,jawabanUser.Ldl,jawabanUser.Tensi,jawabanUser.bmi,jawabanUser.Umur,jawabanUser.Gender,jawabanUser.diabetes,jawabanUser.Sport,jawabanUser.stressval)
-        answerSheets1.add(jawabanUser)
-        Log.d("Test", answerSheets1.toString())
+
+        Backward().backward(result.toString(), jumlah_batang, LDL, Data_Tensi, bmi1.toDouble(),dataumur, result1.toString(),result2.toString(), result3.toString(), result4.toString(),hasil[0])
+
 
     }
 
     override fun onClick(v: View?) {
         answerSheets_data()
+        val Intent = Intent(this@TestUI, Res_test::class.java)
+        startActivity(Intent)
 
     }
     private fun Cf_data(){
@@ -374,24 +379,18 @@ class TestUI : AppCompatActivity(), View.OnClickListener, AdapterView.OnItemSele
         nlistSpinner.add(cf7.toDouble())
         nlistSpinner.add(cf8.toDouble())
         nlistSpinner.add(cf9.toDouble())
+        CertainFactor(
+                nlistSpinner[0],
+                nlistSpinner[1],
+                nlistSpinner[2],
+                nlistSpinner[3],
+                nlistSpinner[4],
+                nlistSpinner[5],
+                nlistSpinner[6],
+                nlistSpinner[7],
+                nlistSpinner[8])
 
-        for (i in nlistSpinner.indices) {
-            if (nlistSpinner != null) {
-                CF_Val().Hitung_CF(
-                        nlistSpinner[0],
-                        nlistSpinner[1],
-                        nlistSpinner[2],
-                        nlistSpinner[3],
-                        nlistSpinner[4],
-                        nlistSpinner[5],
-                        nlistSpinner[6],
-                        nlistSpinner[7],
-                        nlistSpinner[8]
 
-                )
-
-            }
-        }
 
     }
 
@@ -399,7 +398,64 @@ class TestUI : AppCompatActivity(), View.OnClickListener, AdapterView.OnItemSele
         TODO("Not yet implemented")
     }
 
-    override fun onRestart() {
-        super.onRestart()
+    private fun CertainFactor(cf1:Double,cf2: Double,cf3:Double,cf4: Double,cf5:Double,cf6: Double,cf7:Double,cf8: Double,cf9: Double){
+        var CfTampil: Double
+        var CfTampil1: Double
+        var CF_rule :Double
+        var CF_pakar :Double
+        var CF_pakar1 :Double
+        var CF_New :Double
+        var CF_Pakar_data = mutableListOf<Double>()
+        var Cf_New_data = mutableListOf<Double>()
+        var hasil_hitung = mutableListOf<Double>()
+        var nlistcfcombine = ArrayList<Double>()
+        var dataCombine: Double
+        val listMB = listOf<Double>(1.0, 0.8, 0.5, 0.4, 0.8,0.5 , 0.6, 0.7, 0.8)
+        val listMD = listOf<Double>(0.4, 0.4, 0.6, 0.5, 0.6,0.6 , 0.6, 0.4, 0.6)
+        var x = listOf(cf1, cf2, cf3, cf4, cf5, cf6, cf7, cf8, cf9)
+        for (i in listMB.indices)
+        {
+            for (j in listMD.indices)
+            {
+                if (i == 0) {
+                    CF_pakar = listMB[i] - listMD[j]
+                    CF_Pakar_data.add(CF_pakar)
+                }
+            }
+        }
+        for (i in x.indices) {
+            if (i==0) {
+                for (j in CF_Pakar_data.indices) {
+                    CF_rule = x[j] * CF_Pakar_data[j]
+                    nlistcfcombine.add(CF_rule)
+                }
+            }
+        }
+        for (i in x.indices) {
+            if (i==0) {
+                for (j in CF_Pakar_data.indices) {
+                    CF_New = x[j] * (listMB[i] - listMD[j])
+                    Cf_New_data.add(CF_New)
+                }
+            }
+        }
+
+        for (i in nlistcfcombine.indices)
+        {
+            if (i==0){
+                for (j in Cf_New_data.indices){
+                    dataCombine = nlistcfcombine[j]  +Cf_New_data[j]*(1-nlistcfcombine[j])
+                    hasil_hitung.add(dataCombine)
+
+                }
+
+            }
+        }
+        CfTampil1 = (hasil_hitung[0]+ hasil_hitung[1]+ hasil_hitung[2]+ hasil_hitung[3]+ hasil_hitung[4]+ hasil_hitung[5]+hasil_hitung[6]+hasil_hitung[7]+ hasil_hitung[8])*100 / 9
+        CfTampil = CfTampil1.roundToInt().toDouble()
+        println(" hasil Hitung :" + CfTampil)
+        println("CF_Combine hitung  = $hasil_hitung")
+        hasil= listOf(CfTampil)
+        println("hasil CF : " +hasil)
     }
 }

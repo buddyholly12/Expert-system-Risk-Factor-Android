@@ -12,7 +12,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Skripsi"
         android:usesCleartextTraffic="true">
-        <activity android:name=".Backward_Session.Menu_test"></activity>
+        <activity android:name=".Res_test"></activity>
+        <activity android:name=".Backward_Session.Menu_test" />
         <activity android:name=".Backward_Session.Rendah_Backward" />
         <activity android:name=".History.History_data" />
         <activity android:name=".Test_Ui.TestUI" />

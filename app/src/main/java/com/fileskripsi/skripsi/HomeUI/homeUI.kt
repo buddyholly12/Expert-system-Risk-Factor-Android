@@ -7,6 +7,7 @@ import com.fileskripsi.skripsi.History.History_data
 import com.fileskripsi.skripsi.LoginRegistUI.loginRegist
 import com.fileskripsi.skripsi.R
 import com.fileskripsi.skripsi.Backward_Session.Menu_test
+import com.fileskripsi.skripsi.Res_test
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
 import kotlinx.android.synthetic.main.activity_home_u_i.*
@@ -42,6 +43,10 @@ class homeUI : AppCompatActivity() {
 
         button2.setOnClickListener{
             val Intent = Intent(this@homeUI,History_data::class.java)
+            startActivity(Intent)
+        }
+        button3.setOnClickListener {
+            val Intent = Intent(this@homeUI, Res_test::class.java)
             startActivity(Intent)
         }
     }

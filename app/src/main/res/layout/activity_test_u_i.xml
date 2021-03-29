@@ -13,9 +13,10 @@
 
         <RelativeLayout
             android:layout_width="364dp"
-            android:layout_height="550dp"
+            android:layout_height="750dp"
+            android:layout_marginVertical="20dp"
             android:layout_marginStart="30dp"
-            android:layout_marginTop="64dp"
+            android:layout_marginTop="20dp"
             android:layout_marginEnd="30dp"
             android:background="@drawable/rounded_theme"
             app:layout_constraintEnd_toEndOf="parent"
@@ -68,8 +69,8 @@
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:orientation="vertical"
-                            android:gravity="center">
+                            android:gravity="center"
+                            android:orientation="vertical">
 
                             <TextView
                                 android:id="@+id/qustionno1"
@@ -97,6 +98,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="16dp"
                                 android:hint="@string/if1"
+                                android:inputType="number"
                                 android:maxLength="2"
                                 app:layout_constraintEnd_toEndOf="parent"
                                 app:layout_constraintHorizontal_bias="0.459"
@@ -111,6 +113,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center"
                                 android:text="CF1" />
+
                             <Spinner
                                 android:id="@+id/spinner"
                                 android:layout_width="match_parent"
@@ -156,7 +159,8 @@
                                 android:layout_marginStart="32dp"
                                 android:layout_marginTop="8dp"
                                 android:layout_marginEnd="33dp"
-                                android:hint="@string/Ldl">
+                                android:hint="@string/Ldl"
+                                android:inputType="number">
 
                             </EditText>
 
@@ -167,6 +171,7 @@
                                 android:layout_gravity="center"
                                 android:gravity="center"
                                 android:text="CF2" />
+
                             <Spinner
                                 android:id="@+id/spinner2"
                                 android:layout_width="match_parent"
@@ -189,7 +194,7 @@
 
                         <LinearLayout
                             android:layout_width="match_parent"
-                            android:layout_height="match_parent"
+                            android:layout_height="215dp"
                             android:orientation="vertical">
 
 
@@ -209,14 +214,15 @@
                                 android:layout_marginStart="16dp"
                                 android:layout_marginTop="10dp"
                                 android:layout_marginEnd="16dp"
-                                android:hint="@string/tensi"></EditText>
+                                android:hint="@string/tensi"
+                                android:inputType="number"></EditText>
 
                             <Spinner
                                 android:id="@+id/spinner3"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="32dp"
-                                android:layout_marginEnd="32dp"/>
+                                android:layout_marginEnd="32dp" />
 
                         </LinearLayout>
 
@@ -271,7 +277,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="32dp"
-                                android:layout_marginEnd="32dp"/>
+                                android:layout_marginEnd="32dp" />
 
                         </LinearLayout>
                     </androidx.cardview.widget.CardView>
@@ -324,22 +330,22 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="32dp"
-                                android:layout_marginEnd="32dp"/>
+                                android:layout_marginEnd="32dp" />
                         </LinearLayout>
                     </androidx.cardview.widget.CardView>
 
 
                     <androidx.cardview.widget.CardView
                         android:layout_width="300dp"
-                        android:layout_height="200dp"
+                        android:layout_height="310dp"
                         android:layout_gravity="center"
                         android:layout_marginTop="30dp"
                         android:background="@drawable/rounded_theme"
                         app:cardCornerRadius="4dp">
 
                         <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
+                            android:layout_width="300dp"
+                            android:layout_height="500dp"
                             android:orientation="vertical">
 
                             <TextView
@@ -348,15 +354,12 @@
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="16dp"
                                 android:layout_marginTop="24dp"
-                                android:layout_marginEnd="16dp"
                                 android:text="TextView"></TextView>
 
                             <RadioGroup
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_marginStart="16dp"
-                                android:layout_marginTop="10dp"
-                                android:layout_marginEnd="16dp">
+                                android:layout_marginStart="16dp">
 
                                 <RadioButton
                                     android:id="@+id/radioButton6"
@@ -375,8 +378,7 @@
                                 android:id="@+id/spinner6"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_marginStart="32dp"
-                                android:layout_marginEnd="32dp"/>
+                                android:layout_marginStart="32dp" />
 
                         </LinearLayout>
                     </androidx.cardview.widget.CardView>
@@ -442,9 +444,6 @@
                     </androidx.cardview.widget.CardView>
 
 
-
-
-
                     <androidx.cardview.widget.CardView
                         android:layout_width="300dp"
                         android:layout_height="250dp"
@@ -457,6 +456,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:orientation="vertical">
+
                             <TextView
                                 android:id="@+id/question8"
                                 android:layout_width="match_parent"
@@ -483,8 +483,6 @@
 
                         </LinearLayout>
                     </androidx.cardview.widget.CardView>
-
-
 
 
                     <androidx.cardview.widget.CardView
@@ -540,11 +538,11 @@
 
 
                     <Button
+                        android:id="@+id/Submitbutton"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Submit"
-                        android:id="@+id/Submitbutton"
-                        android:layout_gravity="center_horizontal">
+                        android:layout_gravity="center_horizontal"
+                        android:text="Submit">
 
                     </Button>
 

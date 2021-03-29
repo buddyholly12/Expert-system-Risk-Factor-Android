@@ -2,35 +2,78 @@ package com.fileskripsi.skripsi.Backward_Session
 
 import android.util.Log
 import androidx.core.util.rangeTo
+import com.fileskripsi.skripsi.Data_class_Value.AnswerSheets
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
 
 class Backward {
 
+   var auth: FirebaseAuth? = null
+    var databaseReference :  DatabaseReference? = null
+
     fun backward(Smoke:String, smoke_qty:String, Ldl:Int, Tensi:Int, bmi : Double, Umur : Int
-                 ,Gender:String, diabetes :String,Sport : String, stressval :String) {
+                 ,Gender:String, diabetes :String,Sport : String, stressval :String,Cf:Double) {
 
-
+        val ref = FirebaseDatabase.getInstance().getReference("Processing_Data/BackwardRes")
+        val ref1 = FirebaseDatabase.getInstance().getReference("Client_Ans")
         var sb = StringBuilder()
-
         var flag = true
 
+        auth = FirebaseAuth.getInstance()
+        val user = auth!!.currentUser
+        val userreference = databaseReference?.child(user?.uid!!)
+        val datauser = user?.uid
 
         if (smoke_qty.isEmpty()) {
             if (Smoke == "Tidak" && Gender == "Perempuan") {
                 flag
+            }else {
+                val results = "jawaban anda kurang sesuai "
+                sb.append(results)
+            }
+            if(Ldl < 75 && Tensi <= 120)
+            {
+                flag
+            }else {
+                val results = "jawaban anda kurang sesuai "
+                sb.append(results)
             }
             if (bmi in 18.5 rangeTo (24.9) && Umur <= 40) {
                 flag
+            }else {
+                val results = "jawaban anda kurang sesuai "
+                sb.append(results)
             }
             if (Sport == "Rutin" && diabetes == "Tidak") {
                 flag
+            }else {
+                val results = "jawaban anda kurang sesuai "
+                sb.append(results)
             }
-            if (stressval == "Tidak") {
+            if (stressval == "Tidak" && Cf<= 62.0) {
                 flag
-                Log.d("error", "anda memiliki resiko rendah  ")
+                val results = "Anda memiliki resiko rendah"
+                sb.append(results)
 
             } else {
-                Log.d("error", "jawaban anda kurang sesuai ")
+                val results = "jawaban anda kurang sesuai "
+                sb.append(results)
             }
+            println(sb.toString())
+        }
+        else if (smoke_qty.isNotEmpty())
+        {
+            val results = "jawaban anda kurang sesuai "
+            sb.append(results)
+            println(sb.toString())
+        }
+        val taskid = ref.push().key
+        if (taskid!=null)
+        {
+            val dataBackward = AnswerSheets(Smoke,smoke_qty,Ldl,Tensi,bmi,Umur,Gender,diabetes,Sport,stressval,Cf,sb.toString())
+            ref1.child(datauser.toString()).child(taskid).setValue(dataBackward)
+
         }
 
     }
