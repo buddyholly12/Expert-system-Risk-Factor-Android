@@ -15,6 +15,7 @@ import com.fileskripsi.skripsi.CF_data.CF_Val
 import com.fileskripsi.skripsi.Data_class_Value.AnswerSheets
 import com.fileskripsi.skripsi.CF_data.Cf_Class
 import com.fileskripsi.skripsi.CF_data.Cf_hitung
+import com.fileskripsi.skripsi.HomeUI.homeUI
 import com.fileskripsi.skripsi.R
 import com.fileskripsi.skripsi.Res_test
 import com.fileskripsi.skripsi.databinding.ActivityTestUIBinding
@@ -317,16 +318,13 @@ class TestUI : AppCompatActivity(), View.OnClickListener, AdapterView.OnItemSele
 
 
 
-        Backward().backward(result.toString(), jumlah_batang, LDL, Data_Tensi, bmi1.toDouble(),dataumur, result1.toString(),result2.toString(), result3.toString(), result4.toString(),hasil[0])
+        Backward().backward(result.toString(), SmokeqtyBackwardlow(jumlah_batang).toString(), LDL, Data_Tensi, bmi1.toDouble(),dataumur, result1.toString(),result2.toString(), result3.toString(), result4.toString(),hasil[0])
 
 
     }
 
     override fun onClick(v: View?) {
         answerSheets_data()
-        val Intent = Intent(this@TestUI, Res_test::class.java)
-        startActivity(Intent)
-
     }
     private fun Cf_data(){
         val flag = true
@@ -457,5 +455,17 @@ class TestUI : AppCompatActivity(), View.OnClickListener, AdapterView.OnItemSele
         println("CF_Combine hitung  = $hasil_hitung")
         hasil= listOf(CfTampil)
         println("hasil CF : " +hasil)
+    }
+
+    private fun SmokeqtyBackwardlow(qty:String){
+        if (qty.isEmpty())
+        {
+            val Intent = Intent(this@TestUI, Res_test::class.java)
+            startActivity(Intent)
+        }
+        else if (qty.isNotEmpty()) {
+            val Intent = Intent(this@TestUI, homeUI::class.java)
+            startActivity(Intent)
+        }
     }
 }

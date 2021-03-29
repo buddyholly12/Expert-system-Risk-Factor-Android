@@ -53,6 +53,7 @@ class Res_test : AppCompatActivity() {
                 {
                     Tv_hasil.text=data.child("hasil_backward").value.toString()
                     Tv_hasil1.text=data.child("cf").value.toString()
+
                 }
                 Log.d("test data",snapshot.value.toString())
 

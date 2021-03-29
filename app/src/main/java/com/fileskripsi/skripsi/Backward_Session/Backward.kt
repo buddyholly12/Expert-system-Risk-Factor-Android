@@ -1,8 +1,12 @@
 package com.fileskripsi.skripsi.Backward_Session
 
+import android.content.Context
+import android.content.Intent
 import android.util.Log
+import androidx.core.content.ContextCompat.startActivity
 import androidx.core.util.rangeTo
 import com.fileskripsi.skripsi.Data_class_Value.AnswerSheets
+import com.fileskripsi.skripsi.HomeUI.homeUI
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
@@ -48,7 +52,7 @@ class Backward {
         }
         else if (smoke_qty.isNotEmpty())
         {
-            val results = "jawaban anda kurang sesuai "
+            val results = "Jawaban anda kurang sesuai "
             sb.append(results)
             println(sb.toString())
 
@@ -63,4 +67,5 @@ class Backward {
         }
 
     }
+
 }
