@@ -316,14 +316,6 @@ class TestUI : AppCompatActivity(), View.OnClickListener, AdapterView.OnItemSele
         }
 
         val x = AnswerBackward(result.toString(),jumlah_batang, LDL, Data_Tensi, bmi1.toDouble(), dataumur, result1.toString(), result2.toString(), result3.toString(), result4.toString(), hasil[0])
-//        if (x.smoke_qty.isEmpty()) {
-//            Backward().backward(x.Smoke, x.smoke_qty, x.Ldl, x.Tensi, x.bmi, x.Umur, x.Gender, x.diabetes, x.Sport, x.stressval, x.Cf)
-//            SmokeqtyBackwardlow(x.smoke_qty)
-//        }
-//        if(x.Smoke.isEmpty())
-//        {
-//            Backward().Medium_Backward(x.Smoke, x.smoke_qty, x.Ldl, x.Tensi, x.bmi, x.Umur, x.Gender, x.diabetes, x.Sport, x.stressval, x.Cf)
-//        }
 
         if (x.Umur <= 40) {
             Backward().backward(x.Smoke, SmokeqtyBackwardlow(jumlah_batang), x.Ldl, x.Tensi, x.bmi, x.Umur, x.Gender, x.diabetes, x.Sport, x.stressval, x.Cf)

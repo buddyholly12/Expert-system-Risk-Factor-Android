@@ -132,7 +132,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginEnd="16dp"
-                        android:text="PENCEGAHAN :"
+                        android:text="SARAN :"
                         android:textSize="16sp"
                         android:textStyle="bold" />
 
@@ -157,35 +157,6 @@
 
 
 
-                <TableRow
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginBottom="8dp">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginEnd="16dp"
-                        android:text="PENGOBATAN :"
-                        android:textSize="16sp"
-                        android:textStyle="bold" />
-
-                </TableRow>
-
-
-                <TableRow
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginBottom="8dp">
-
-                    <TextView
-                        android:id="@+id/Tv_hasil4"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginEnd="16dp"
-                        android:text="TextView"
-                        android:textSize="18sp" />
-                </TableRow>
 
 
 
