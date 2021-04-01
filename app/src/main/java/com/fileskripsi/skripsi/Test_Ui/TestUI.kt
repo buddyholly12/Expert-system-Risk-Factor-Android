@@ -10,11 +10,10 @@ import androidx.core.util.rangeTo
 import androidx.core.view.isGone
 import androidx.databinding.DataBindingUtil
 import com.fileskripsi.skripsi.Backward_Session.Backward
-import com.fileskripsi.skripsi.Backward_Session.Menu_test
-import com.fileskripsi.skripsi.CF_data.CF_Val
 import com.fileskripsi.skripsi.Data_class_Value.AnswerSheets
 import com.fileskripsi.skripsi.CF_data.Cf_Class
 import com.fileskripsi.skripsi.CF_data.Cf_hitung
+import com.fileskripsi.skripsi.Data_class_Value.AnswerBackward
 import com.fileskripsi.skripsi.HomeUI.homeUI
 import com.fileskripsi.skripsi.R
 import com.fileskripsi.skripsi.Res_test
@@ -42,7 +41,7 @@ class TestUI : AppCompatActivity(), View.OnClickListener, AdapterView.OnItemSele
     private lateinit var CF_list: MutableList<Cf_Class>
     private lateinit var CF_Data: MutableList<Cf_hitung>
     private lateinit var CF_Data1: MutableList<Cf_hitung>
-    private lateinit var CF_Data2: MutableList<Cf_hitung>
+   // private lateinit var CF_Data2: MutableList<MedAns>
     var dbRef: DatabaseReference? =null
     var database1:FirebaseDatabase? = null
     lateinit var auth: FirebaseAuth
@@ -73,7 +72,7 @@ class TestUI : AppCompatActivity(), View.OnClickListener, AdapterView.OnItemSele
         CF_list = mutableListOf()
         CF_Data = mutableListOf()
         CF_Data1 = mutableListOf()
-        CF_Data2 = mutableListOf()
+        //CF_Data2 = mutableListOf()
         Submit.setOnClickListener(this)
         Cf_data()
 
@@ -239,7 +238,7 @@ class TestUI : AppCompatActivity(), View.OnClickListener, AdapterView.OnItemSele
         val tinggi = tinggi_badan.text.toString().toDouble()
         val bmi = bb / tinggi / tinggi * 10000
         val bmi1 = bmi.roundToInt()
-        Log.d("bmi",bmi.toString())
+        Log.d("bmi", bmi.toString())
         if (bmi1.toDouble() in 18.5 rangeTo (24.9)) {
             val A10 = 0.8
             nlist.add(A10)
@@ -311,16 +310,29 @@ class TestUI : AppCompatActivity(), View.OnClickListener, AdapterView.OnItemSele
             nlist.add(A24)
         }
         if (radioButton12.isChecked) {
-            result4.append("ya")
+            result4.append("Ya")
             val A23 = -1.0
             nlist.add(A23)
         }
 
+        val x = AnswerBackward(result.toString(),jumlah_batang, LDL, Data_Tensi, bmi1.toDouble(), dataumur, result1.toString(), result2.toString(), result3.toString(), result4.toString(), hasil[0])
+//        if (x.smoke_qty.isEmpty()) {
+//            Backward().backward(x.Smoke, x.smoke_qty, x.Ldl, x.Tensi, x.bmi, x.Umur, x.Gender, x.diabetes, x.Sport, x.stressval, x.Cf)
+//            SmokeqtyBackwardlow(x.smoke_qty)
+//        }
+//        if(x.Smoke.isEmpty())
+//        {
+//            Backward().Medium_Backward(x.Smoke, x.smoke_qty, x.Ldl, x.Tensi, x.bmi, x.Umur, x.Gender, x.diabetes, x.Sport, x.stressval, x.Cf)
+//        }
 
-
-        Backward().backward(result.toString(), SmokeqtyBackwardlow(jumlah_batang).toString(), LDL, Data_Tensi, bmi1.toDouble(),dataumur, result1.toString(),result2.toString(), result3.toString(), result4.toString(),hasil[0])
-
-
+        if (x.Umur <= 40) {
+            Backward().backward(x.Smoke, SmokeqtyBackwardlow(jumlah_batang), x.Ldl, x.Tensi, x.bmi, x.Umur, x.Gender, x.diabetes, x.Sport, x.stressval, x.Cf)
+        }
+        if (x.Umur in 40 rangeTo (50))
+        {
+            Backward().Medium_Backward(SmokeBackwardMed(x.Smoke),jumlah_batang, x.Ldl, x.Tensi, x.bmi, x.Umur, x.Gender, x.diabetes, x.Sport, x.stressval, x.Cf)
+            println(x)
+        }
     }
 
     override fun onClick(v: View?) {
@@ -331,7 +343,6 @@ class TestUI : AppCompatActivity(), View.OnClickListener, AdapterView.OnItemSele
         val cfUser = listOf<Double>(0.0,0.4,0.6,0.8)
         var nlist = mutableListOf<Double>()
          val Cf_datauser = resources.getStringArray(R.array.CF_list)
-
         val arrayAdapter = ArrayAdapter(this@TestUI,android.R.layout.simple_spinner_dropdown_item,Cf_datauser)
         spinner.adapter = arrayAdapter
         spinner.onItemSelectedListener = this
@@ -356,8 +367,6 @@ class TestUI : AppCompatActivity(), View.OnClickListener, AdapterView.OnItemSele
 
     override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
         var nlistSpinner = mutableListOf<Double>()
-
-
         var cf1 = binding?.spinner?.selectedItem.toString()
         var cf2 = binding?.spinner2?.selectedItem.toString()
         var cf3 = binding?.spinner3?.selectedItem.toString()
@@ -387,9 +396,6 @@ class TestUI : AppCompatActivity(), View.OnClickListener, AdapterView.OnItemSele
                 nlistSpinner[6],
                 nlistSpinner[7],
                 nlistSpinner[8])
-
-
-
     }
 
     override fun onNothingSelected(parent: AdapterView<*>?) {
@@ -457,7 +463,20 @@ class TestUI : AppCompatActivity(), View.OnClickListener, AdapterView.OnItemSele
         println("hasil CF : " +hasil)
     }
 
-    private fun SmokeqtyBackwardlow(qty:String){
+    private fun SmokeqtyBackwardlow(qty:String):String{
+        if (qty.isEmpty())
+        {
+            val Intent = Intent(this@TestUI, Res_test::class.java)
+            startActivity(Intent)
+        }
+        else if (qty.isNotEmpty()) {
+            val Intent = Intent(this@TestUI, homeUI::class.java)
+            startActivity(Intent)
+            Toast.makeText(this, "Jawaban Anda Kurang Sesuai ", Toast.LENGTH_SHORT).show()
+        }
+        return  qty
+    }
+    private fun SmokeBackwardMed(qty:String):String {
         if (qty.isEmpty())
         {
             val Intent = Intent(this@TestUI, Res_test::class.java)
@@ -467,5 +486,6 @@ class TestUI : AppCompatActivity(), View.OnClickListener, AdapterView.OnItemSele
             val Intent = Intent(this@TestUI, homeUI::class.java)
             startActivity(Intent)
         }
+        return qty
     }
 }

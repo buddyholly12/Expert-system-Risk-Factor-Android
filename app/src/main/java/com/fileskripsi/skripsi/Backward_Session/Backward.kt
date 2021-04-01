@@ -45,7 +45,7 @@ class Backward {
             }
             if (stressval == "Tidak" && Cf<= 62.0) {
                 flag
-                val results = "Anda memiliki resiko rendah"
+                val results = " Resiko rendah"
                 sb.append(results)
             }
             println(sb.toString())
@@ -57,7 +57,6 @@ class Backward {
             println(sb.toString())
 
         }
-        val data = "data ke 1"
         val taskid = ref1.push().key
         if (taskid!=null)
         {
@@ -66,6 +65,53 @@ class Backward {
             ref1.child(datauser.toString()).child(taskid).setValue(dataBackward)
         }
 
+    }
+    fun Medium_Backward(Smoke:String, smoke_qty:String, Ldl:Int, Tensi:Int, bmi : Double, Umur : Int
+                        ,Gender:String, diabetes :String,Sport : String, stressval :String,Cf:Double){
+        val ref = FirebaseDatabase.getInstance().getReference("Processing_Data/BackwardRes")
+        val ref1 = FirebaseDatabase.getInstance().getReference("Client_Ans")
+        var sb = StringBuilder()
+        var flag = true
+
+        auth = FirebaseAuth.getInstance()
+        val user = auth!!.currentUser
+        val userreference = databaseReference?.child(user?.uid!!)
+        val datauser = user?.uid
+
+        if(smoke_qty.toInt()<=10)
+        {
+            if (Smoke.isEmpty() && Gender == "Perempuan") {
+                flag
+            }
+            if(Ldl in 75 rangeTo (150) && Tensi in 120 rangeTo (140))
+            {
+                flag
+            }
+            if (bmi in 25.0 rangeTo (29.9) && Umur in 40 rangeTo (50)) {
+                flag
+            }
+            if (Sport == "Jarang" && diabetes == "Ya") {
+                flag
+            }
+            if (stressval == "Ya" && Cf<= 62.0) {
+                flag
+                val results = "Resiko Sedang "
+                sb.append(results)
+            }
+        }
+        else if(smoke_qty.isEmpty())
+        {
+            val results = "Jawaban anda kurang sesuai "
+            sb.append(results)
+            println(sb.toString())
+        }
+        val taskid = ref1.push().key
+        if (taskid!=null)
+        {
+            Log.d("test",taskid)
+            val dataBackward = AnswerSheets(taskid.toString(),Smoke,smoke_qty,Ldl,Tensi,bmi,Umur,Gender,diabetes,Sport,stressval,Cf,sb.toString())
+            ref1.child(datauser.toString()).child(taskid).setValue(dataBackward)
+        }
     }
 
 }
