@@ -12,14 +12,14 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Skripsi"
         android:usesCleartextTraffic="true">
-        <activity android:name=".Res_test"></activity>
+        <activity android:name=".BMi_Cal.BmiMain"></activity>
+        <activity android:name=".Res_test" />
         <activity android:name=".Backward_Session.Menu_test" />
-        <activity android:name=".Backward_Session.Rendah_Backward" />
         <activity android:name=".History.History_data" />
         <activity android:name=".Test_Ui.TestUI" />
         <activity android:name=".HomeUI.homeUI" />
-        <activity android:name=".RegistUI.RegistUI" />
         <activity android:name=".LoginRegistUI.loginRegist" />
+        <activity android:name=".RegistUI.RegistUI" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

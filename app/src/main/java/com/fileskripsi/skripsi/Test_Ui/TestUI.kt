@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.widget.*
+import androidx.appcompat.app.AlertDialog
 import androidx.core.util.rangeTo
 import androidx.core.view.isGone
 import androidx.databinding.DataBindingUtil
@@ -75,7 +76,16 @@ class TestUI : AppCompatActivity(), View.OnClickListener, AdapterView.OnItemSele
         //CF_Data2 = mutableListOf()
         Submit.setOnClickListener(this)
         Cf_data()
+        Instruction()
 
+    }
+    private fun Instruction(){
+        val x = "Petunjuk penggunaan"
+        val y = "Certainty factor merupakan metode yang mendefinisikan ukuran kepastian terhadap fakta atau aturan untuk menggambarkan keyakinan seorang pakar terhadap masalah yang sedang dihadapi"
+        val z = "\t Tingkatan Certainty factor pada aplikasi ini terdiri dari :\n 1. 0.0 -> tidak terisi \n 2. 0.4 -> mungkin \n 3. 0.6 -> kemungkinan besar \n 4. 0.8 -> hampir pasti "
+        Tv_Instruction2.text = x
+        Tv_instruction1.text = y
+        TV_Instruction.text = z
 
     }
 
@@ -318,11 +328,17 @@ class TestUI : AppCompatActivity(), View.OnClickListener, AdapterView.OnItemSele
         val x = AnswerBackward(result.toString(),jumlah_batang, LDL, Data_Tensi, bmi1.toDouble(), dataumur, result1.toString(), result2.toString(), result3.toString(), result4.toString(), hasil[0])
 
         if (x.Umur <= 40) {
-            Backward().backward(x.Smoke, SmokeqtyBackwardlow(jumlah_batang), x.Ldl, x.Tensi, x.bmi, x.Umur, x.Gender, x.diabetes, x.Sport, x.stressval, x.Cf)
+            Backward().backward(x.Smoke, BackwardlowChecker(jumlah_batang), x.Ldl, x.Tensi, x.bmi, x.Umur, x.Gender, x.diabetes, x.Sport, x.stressval, x.Cf)
         }
         if (x.Umur in 40 rangeTo (50))
         {
             Backward().Medium_Backward(SmokeBackwardMed(x.Smoke),jumlah_batang, x.Ldl, x.Tensi, x.bmi, x.Umur, x.Gender, x.diabetes, x.Sport, x.stressval, x.Cf)
+            println(x)
+
+        }
+        if (x.Umur >=50)
+        {
+            Backward().HighBackward(SmokeBackwardHigh(x.Smoke),jumlah_batang, x.Ldl, x.Tensi, x.bmi, x.Umur, x.Gender, x.diabetes, x.Sport, x.stressval, x.Cf)
             println(x)
         }
     }
@@ -359,15 +375,15 @@ class TestUI : AppCompatActivity(), View.OnClickListener, AdapterView.OnItemSele
 
     override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
         var nlistSpinner = mutableListOf<Double>()
-        var cf1 = binding?.spinner?.selectedItem.toString()
-        var cf2 = binding?.spinner2?.selectedItem.toString()
-        var cf3 = binding?.spinner3?.selectedItem.toString()
-        var cf4 = binding?.spinner4?.selectedItem.toString()
-        var cf5 = binding?.spinner5?.selectedItem.toString()
-        var cf6 = binding?.spinner6?.selectedItem.toString()
-        var cf7 = binding?.spinner7?.selectedItem.toString()
-        var cf8 = binding?.spinner8?.selectedItem.toString()
-        var cf9 = binding?.spinner9?.selectedItem.toString()
+        var cf1 = binding?.spinner?.selectedItem.toString().trim()
+        var cf2 = binding?.spinner2?.selectedItem.toString().trim()
+        var cf3 = binding?.spinner3?.selectedItem.toString().trim()
+        var cf4 = binding?.spinner4?.selectedItem.toString().trim()
+        var cf5 = binding?.spinner5?.selectedItem.toString().trim()
+        var cf6 = binding?.spinner6?.selectedItem.toString().trim()
+        var cf7 = binding?.spinner7?.selectedItem.toString().trim()
+        var cf8 = binding?.spinner8?.selectedItem.toString().trim()
+        var cf9 = binding?.spinner9?.selectedItem.toString().trim()
 
         nlistSpinner.add(cf1.toDouble())
         nlistSpinner.add(cf2.toDouble())
@@ -394,6 +410,7 @@ class TestUI : AppCompatActivity(), View.OnClickListener, AdapterView.OnItemSele
         TODO("Not yet implemented")
     }
 
+
     private fun CertainFactor(cf1:Double,cf2: Double,cf3:Double,cf4: Double,cf5:Double,cf6: Double,cf7:Double,cf8: Double,cf9: Double){
         var CfTampil: Double
         var CfTampil1: Double
@@ -401,6 +418,14 @@ class TestUI : AppCompatActivity(), View.OnClickListener, AdapterView.OnItemSele
         var CF_pakar :Double
         var CF_pakar1 :Double
         var CF_New :Double
+        var dataCombine1: Double
+        var dataCombine2: Double
+        var dataCombine3: Double
+        var dataCombine4: Double
+        var dataCombine5: Double
+        var dataCombine6: Double
+        var dataCombine7: Double
+        var dataCombine8: Double
         var CF_Pakar_data = mutableListOf<Double>()
         var Cf_New_data = mutableListOf<Double>()
         var hasil_hitung = mutableListOf<Double>()
@@ -416,9 +441,11 @@ class TestUI : AppCompatActivity(), View.OnClickListener, AdapterView.OnItemSele
                 if (i == 0) {
                     CF_pakar = listMB[i] - listMD[j]
                     CF_Pakar_data.add(CF_pakar)
+
                 }
             }
         }
+        println("isi data Cf Pakar : $CF_Pakar_data")
         for (i in x.indices) {
             if (i==0) {
                 for (j in CF_Pakar_data.indices) {
@@ -427,27 +454,34 @@ class TestUI : AppCompatActivity(), View.OnClickListener, AdapterView.OnItemSele
                 }
             }
         }
+        println("isi data CF old : $nlistcfcombine")
         for (i in x.indices) {
             if (i==0) {
                 for (j in CF_Pakar_data.indices) {
                     CF_New = x[j] * (listMB[i] - listMD[j])
                     Cf_New_data.add(CF_New)
+
                 }
             }
         }
-
+        println("isi data CFnew : $Cf_New_data")
         for (i in nlistcfcombine.indices)
         {
             if (i==0){
                 for (j in Cf_New_data.indices){
+
                     dataCombine = nlistcfcombine[j]  +Cf_New_data[j]*(1-nlistcfcombine[j])
-                    hasil_hitung.add(dataCombine)
+                    dataCombine1 = nlistcfcombine[j] + dataCombine *(1-nlistcfcombine[j])
+
+
+                   // hasil_hitung.add(df.format(dataCombine1).toDouble())
+                    hasil_hitung.add(dataCombine1)
 
                 }
 
             }
         }
-        CfTampil1 = (hasil_hitung[0]+ hasil_hitung[1]+ hasil_hitung[2]+ hasil_hitung[3]+ hasil_hitung[4]+ hasil_hitung[5]+hasil_hitung[6]+hasil_hitung[7]+ hasil_hitung[8])*100 / 9
+        CfTampil1 = hasil_hitung[8]*100
         CfTampil = CfTampil1.roundToInt().toDouble()
         println(" hasil Hitung :" + CfTampil)
         println("CF_Combine hitung  = $hasil_hitung")
@@ -455,16 +489,25 @@ class TestUI : AppCompatActivity(), View.OnClickListener, AdapterView.OnItemSele
         println("hasil CF : " +hasil)
     }
 
-    private fun SmokeqtyBackwardlow(qty:String):String{
+    private fun BackwardlowChecker(qty:String):String{
         if (qty.isEmpty())
         {
             val Intent = Intent(this@TestUI, Res_test::class.java)
             startActivity(Intent)
         }
         else if (qty.isNotEmpty()) {
-            val Intent = Intent(this@TestUI, homeUI::class.java)
-            startActivity(Intent)
-            Toast.makeText(this, "Jawaban Anda Kurang Sesuai ", Toast.LENGTH_SHORT).show()
+
+            //Toast.makeText(this, "Jawaban Anda Kurang Sesuai ", Toast.LENGTH_SHORT).show()
+
+            val alertnotifDialog = AlertDialog.Builder(this)
+                    .setTitle("Hasil Diagnosa")
+                    .setMessage("Anda Bukan termasuk resiko Rendah")
+                    .setPositiveButton("OK"){ _,_->
+                        val Intent = Intent(this@TestUI, homeUI::class.java)
+                        startActivity(Intent)
+                    }
+                    .create()
+            alertnotifDialog.show()
         }
         return  qty
     }
@@ -475,8 +518,34 @@ class TestUI : AppCompatActivity(), View.OnClickListener, AdapterView.OnItemSele
             startActivity(Intent)
         }
         else if (qty.isNotEmpty()) {
-            val Intent = Intent(this@TestUI, homeUI::class.java)
+            val alertnotifDialog = AlertDialog.Builder(this)
+                    .setTitle("Hasil Diagnosa")
+                    .setMessage("Anda Bukan termasuk resiko Sedang")
+                    .setPositiveButton("OK"){ _,_->
+                        val Intent = Intent(this@TestUI, homeUI::class.java)
+                        startActivity(Intent)
+                    }
+                    .create()
+            alertnotifDialog.show()
+        }
+        return qty
+    }
+    private fun SmokeBackwardHigh(qty:String):String{
+        if (qty.isEmpty())
+        {
+            val Intent = Intent(this@TestUI, Res_test::class.java)
             startActivity(Intent)
+        }
+        else if (qty.isNotEmpty()) {
+            val alertnotifDialog = AlertDialog.Builder(this)
+                    .setTitle("Hasil Diagnosa")
+                    .setMessage("Anda Bukan termasuk resiko Tinggi")
+                    .setPositiveButton("OK"){ _,_->
+                        val Intent = Intent(this@TestUI, homeUI::class.java)
+                        startActivity(Intent)
+                    }
+                    .create()
+            alertnotifDialog.show()
         }
         return qty
     }

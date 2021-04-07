@@ -10,6 +10,7 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
 import kotlinx.android.synthetic.main.activity_home_u_i.*
 import kotlinx.android.synthetic.main.activity_res_test.*
+import kotlinx.android.synthetic.main.activity_test_u_i.*
 import java.util.*
 
 class Res_test : AppCompatActivity() {
@@ -47,14 +48,18 @@ class Res_test : AppCompatActivity() {
             userreference?.addListenerForSingleValueEvent(object : ValueEventListener{
             override fun onDataChange(snapshot: DataSnapshot) {
                 Log.d("test1", snapshot.toString())
-
+                var sb = StringBuilder()
+                var sb1 = StringBuilder()
                 //Log.d("test",Tv_hasil.toString())
+
                 for (data in snapshot.children)
                 {
                     Tv_hasil.text=data.child("hasil_backward").value.toString()
                     Tv_hasil1.text=data.child("cf").value.toString()
-
+                    Tv_hasil2.text=data.child("deskripsi").value.toString()
+                    Tv_hasil3.text = data.child("saran").value.toString()
                 }
+
                 Log.d("test data",snapshot.value.toString())
 
             }

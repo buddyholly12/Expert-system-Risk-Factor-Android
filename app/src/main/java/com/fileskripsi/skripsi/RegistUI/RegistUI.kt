@@ -9,6 +9,7 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import com.fileskripsi.skripsi.HomeUI.homeUI
+import com.fileskripsi.skripsi.LoginRegistUI.loginRegist
 import com.fileskripsi.skripsi.R
 import com.fileskripsi.skripsi.User
 import com.google.android.gms.tasks.Task
@@ -28,7 +29,6 @@ class RegistUI : AppCompatActivity(){
 
     private lateinit var auth:FirebaseAuth
     private lateinit var displayName: EditText
-    private lateinit var status: EditText
     private lateinit var email: EditText
     private lateinit var Password: EditText
     private  lateinit var  Regist :Button
@@ -39,32 +39,35 @@ class RegistUI : AppCompatActivity(){
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_regist_u_i)
+        supportActionBar?.hide()
 
         auth = FirebaseAuth.getInstance();
         database1 = FirebaseDatabase.getInstance()
 
         dbRef = database1?.reference!!.child("Data User")
-
         displayName = findViewById(R.id.displayName) as EditText
-        status = findViewById(R.id.status) as EditText
         Regist = findViewById(R.id.Register_session) as Button
         email = findViewById(R.id.email) as EditText
         Password = findViewById(R.id.Password) as EditText
-
+        val dataUser= auth.currentUser
+        if(dataUser!= null){
+            val Home = Intent(this@RegistUI,homeUI::class.java)
+            startActivity(Home)
+        }
 
 
         Regist.setOnClickListener {
             if (email.text.toString().trim().isNotEmpty()|| Password.text.toString().trim().isNotEmpty()){
                 createUser(email.text.toString().trim(),Password.text.toString().trim())
-                val Home = Intent(this@RegistUI,homeUI::class.java)
-                startActivity(Home)
             }
             else{
                 Toast.makeText(applicationContext, "input data ", Toast.LENGTH_SHORT).show()
             }
-            //getdata()
         }
-
+        Loginbutt.setOnClickListener({
+            val Home = Intent(this@RegistUI,loginRegist::class.java)
+            startActivity(Home)
+        })
 
     }
 
@@ -72,12 +75,12 @@ class RegistUI : AppCompatActivity(){
     fun createUser(email:String,Password:String){
         auth.createUserWithEmailAndPassword(email,Password).addOnCompleteListener { task ->
             if (task.isSuccessful){
-
                 val curruser = auth.currentUser
                 val curruserdb = dbRef?.child((curruser?.uid!!))
-                curruserdb?.child("DisplayName")?.setValue(displayName.text.toString())
-                curruserdb?.child("Status")?.setValue(status.text.toString())
+                print(curruserdb?.child("DisplayName")?.setValue(displayName.text.toString()))
                 Log.e("Task message ", "Successful Register");
+                val Home = Intent(this@RegistUI,homeUI::class.java)
+                startActivity(Home)
                 finish()
             }
             else{
@@ -85,14 +88,7 @@ class RegistUI : AppCompatActivity(){
             }
         }
     }
- override fun onStart(){
-     super.onStart()
-     val dataUser= auth.currentUser
-     if(dataUser!= null){
-         val Home = Intent(this@RegistUI,homeUI::class.java)
-         startActivity(Home)
-     }
- }
+
 
 
 
