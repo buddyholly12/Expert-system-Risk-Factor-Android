@@ -1,4 +1,4 @@
-package com.fileskripsi.skripsi.Test_Ui
+package com.fileskripsi.skripsi.Backward_Session
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -10,11 +10,10 @@ import androidx.appcompat.app.AlertDialog
 import androidx.core.util.rangeTo
 import androidx.core.view.isGone
 import androidx.databinding.DataBindingUtil
-import com.fileskripsi.skripsi.Backward_Session.Backward
-import com.fileskripsi.skripsi.Data_class_Value.AnswerSheets
 import com.fileskripsi.skripsi.CF_data.Cf_Class
 import com.fileskripsi.skripsi.CF_data.Cf_hitung
 import com.fileskripsi.skripsi.Data_class_Value.AnswerBackward
+import com.fileskripsi.skripsi.Data_class_Value.AnswerSheets
 import com.fileskripsi.skripsi.HomeUI.homeUI
 import com.fileskripsi.skripsi.R
 import com.fileskripsi.skripsi.Res_test
@@ -24,7 +23,7 @@ import com.google.firebase.database.*
 import kotlinx.android.synthetic.main.activity_test_u_i.*
 import kotlin.math.roundToInt
 
-class TestUI : AppCompatActivity(), View.OnClickListener, AdapterView.OnItemSelectedListener {
+class High_Checker : AppCompatActivity(), View.OnClickListener, AdapterView.OnItemSelectedListener {
     private lateinit var database: FirebaseDatabase
     private lateinit var jumlahbtg: EditText
     private lateinit var LDl: EditText
@@ -42,12 +41,12 @@ class TestUI : AppCompatActivity(), View.OnClickListener, AdapterView.OnItemSele
     private lateinit var CF_list: MutableList<Cf_Class>
     private lateinit var CF_Data: MutableList<Cf_hitung>
     private lateinit var CF_Data1: MutableList<Cf_hitung>
-   // private lateinit var CF_Data2: MutableList<MedAns>
+    // private lateinit var CF_Data2: MutableList<MedAns>
     var dbRef: DatabaseReference? =null
-    var database1:FirebaseDatabase? = null
+    var database1: FirebaseDatabase? = null
     lateinit var auth: FirebaseAuth
     var databaseReference :  DatabaseReference? = null
-    private lateinit var  binding:ActivityTestUIBinding
+    private lateinit var  binding: ActivityTestUIBinding
     lateinit var hasil : List<Double>
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -326,7 +325,8 @@ class TestUI : AppCompatActivity(), View.OnClickListener, AdapterView.OnItemSele
         }
 
         val x = AnswerBackward(result.toString(),jumlah_batang, LDL, Data_Tensi, bmi1.toDouble(), dataumur, result1.toString(), result2.toString(), result3.toString(), result4.toString(), hasil[0])
-        Backward().backward(x.Smoke, BackwardlowChecker(jumlah_batang), x.Ldl, x.Tensi, x.bmi, x.Umur, x.Gender, x.diabetes, x.Sport, x.stressval, x.Cf)
+        Backward().HighBackward(SmokeBackwardHigh(x.Smoke),jumlah_batang, x.Ldl, x.Tensi, x.bmi, x.Umur, x.Gender, x.diabetes, x.Sport, x.stressval, x.Cf)
+        println(x)
 
     }
 
@@ -337,8 +337,8 @@ class TestUI : AppCompatActivity(), View.OnClickListener, AdapterView.OnItemSele
         val flag = true
         val cfUser = listOf<Double>(0.0,0.4,0.6,0.8)
         var nlist = mutableListOf<Double>()
-         val Cf_datauser = resources.getStringArray(R.array.CF_list)
-        val arrayAdapter = ArrayAdapter(this@TestUI,android.R.layout.simple_spinner_dropdown_item,Cf_datauser)
+        val Cf_datauser = resources.getStringArray(R.array.CF_list)
+        val arrayAdapter = ArrayAdapter(this@High_Checker,android.R.layout.simple_spinner_dropdown_item,Cf_datauser)
         spinner.adapter = arrayAdapter
         spinner.onItemSelectedListener = this
         spinner2.adapter = arrayAdapter
@@ -382,15 +382,15 @@ class TestUI : AppCompatActivity(), View.OnClickListener, AdapterView.OnItemSele
         nlistSpinner.add(cf8.toDouble())
         nlistSpinner.add(cf9.toDouble())
         CertainFactor(
-                nlistSpinner[0],
-                nlistSpinner[1],
-                nlistSpinner[2],
-                nlistSpinner[3],
-                nlistSpinner[4],
-                nlistSpinner[5],
-                nlistSpinner[6],
-                nlistSpinner[7],
-                nlistSpinner[8])
+            nlistSpinner[0],
+            nlistSpinner[1],
+            nlistSpinner[2],
+            nlistSpinner[3],
+            nlistSpinner[4],
+            nlistSpinner[5],
+            nlistSpinner[6],
+            nlistSpinner[7],
+            nlistSpinner[8])
     }
 
     override fun onNothingSelected(parent: AdapterView<*>?) {
@@ -454,7 +454,7 @@ class TestUI : AppCompatActivity(), View.OnClickListener, AdapterView.OnItemSele
                     dataCombine1 = nlistcfcombine[j] + dataCombine *(1-nlistcfcombine[j])
 
 
-                   // hasil_hitung.add(df.format(dataCombine1).toDouble())
+                    // hasil_hitung.add(df.format(dataCombine1).toDouble())
                     hasil_hitung.add(dataCombine1)
 
                 }
@@ -469,27 +469,23 @@ class TestUI : AppCompatActivity(), View.OnClickListener, AdapterView.OnItemSele
         println("hasil CF : " +hasil)
     }
 
-    private fun BackwardlowChecker(qty:String):String{
+    private fun SmokeBackwardHigh(qty:String):String{
         if (qty.isEmpty())
         {
-            val Intent = Intent(this@TestUI, Res_test::class.java)
+            val Intent = Intent(this@High_Checker, Res_test::class.java)
             startActivity(Intent)
         }
         else if (qty.isNotEmpty()) {
-
-            //Toast.makeText(this, "Jawaban Anda Kurang Sesuai ", Toast.LENGTH_SHORT).show()
-
             val alertnotifDialog = AlertDialog.Builder(this)
-                    .setTitle("Hasil Diagnosa")
-                    .setMessage("Anda Bukan termasuk resiko Rendah")
-                    .setPositiveButton("OK"){ _,_->
-                        val Intent = Intent(this@TestUI, homeUI::class.java)
-                        startActivity(Intent)
-                    }
-                    .create()
+                .setTitle("Hasil Diagnosa")
+                .setMessage("Anda Bukan termasuk resiko Tinggi")
+                .setPositiveButton("OK"){ _,_->
+                    val Intent = Intent(this@High_Checker, homeUI::class.java)
+                    startActivity(Intent)
+                }
+                .create()
             alertnotifDialog.show()
         }
-        return  qty
+        return qty
     }
-
 }

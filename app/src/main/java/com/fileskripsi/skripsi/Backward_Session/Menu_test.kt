@@ -17,7 +17,7 @@ class Menu_test : AppCompatActivity() {
             startActivity(Intent)
         }
         Sedang_quiz.setOnClickListener{
-            val Intent = Intent(this@Menu_test,TestUI::class.java)
+            val Intent = Intent(this@Menu_test,Medium_Checker::class.java)
             startActivity(Intent)
         }
         TInggi_quiz.setOnClickListener{

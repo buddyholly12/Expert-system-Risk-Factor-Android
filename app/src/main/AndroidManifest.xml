@@ -12,7 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Skripsi"
         android:usesCleartextTraffic="true">
-        <activity android:name=".BMi_Cal.BmiMain"></activity>
+        <activity android:name=".Backward_Session.High_Checker"></activity>
+        <activity android:name=".Backward_Session.Medium_Checker" />
+        <activity android:name=".BMi_Cal.BmiMain" />
         <activity android:name=".Res_test" />
         <activity android:name=".Backward_Session.Menu_test" />
         <activity android:name=".History.History_data" />

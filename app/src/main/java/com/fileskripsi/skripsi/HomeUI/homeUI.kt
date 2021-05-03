@@ -3,7 +3,6 @@ package com.fileskripsi.skripsi.HomeUI
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.fileskripsi.skripsi.BMi_Cal.BmiMain
 import com.fileskripsi.skripsi.History.History_data
 import com.fileskripsi.skripsi.LoginRegistUI.loginRegist
 import com.fileskripsi.skripsi.R
@@ -50,10 +49,10 @@ class homeUI : AppCompatActivity() {
             val Intent = Intent(this@homeUI, Res_test::class.java)
             startActivity(Intent)
         }
-        button4.setOnClickListener{
-            val Intent = Intent(this@homeUI, BmiMain::class.java)
-            startActivity(Intent)
-        }
+//        button4.setOnClickListener{
+//            val Intent = Intent(this@homeUI, BmiMain::class.java)
+//            startActivity(Intent)
+//        }
 
 
     }
@@ -83,21 +82,6 @@ class homeUI : AppCompatActivity() {
             }
         })
 
-    }
-
-    private fun disp_profile()
-    {
-        val user = auth.currentUser
-        val userreference = databaseReference?.child(user?.uid!!)
-        userreference?.addValueEventListener(object: ValueEventListener{
-            override fun onDataChange(snapshot: DataSnapshot) {
-                print(snapshot)
-            }
-
-            override fun onCancelled(error: DatabaseError) {
-                TODO("Not yet implemented")
-            }
-        })
     }
 
 }
