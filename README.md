@@ -3,6 +3,6 @@
 ## Progress 
 - [x] Backward Chain Rendah, Sedang , Berat
 - [x] UI Fixing
-- [x] Edit Menu 
+- [x] Editing Menu 
 - [x] Certainty Factor 
-
+- [x] User Testing
