@@ -21,7 +21,7 @@ class Menu_test : AppCompatActivity() {
             startActivity(Intent)
         }
         TInggi_quiz.setOnClickListener{
-            val Intent = Intent(this@Menu_test, TestUI::class.java)
+            val Intent = Intent(this@Menu_test, High_Checker::class.java)
             startActivity(Intent)
         }
 

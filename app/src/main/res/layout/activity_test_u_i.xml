@@ -60,12 +60,14 @@
                                 android:id="@+id/Tv_instruction1"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
+                                android:paddingHorizontal="20dp"
                                 android:text="TextView" />
 
                             <TextView
                                 android:id="@+id/TV_Instruction"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
+                                android:paddingHorizontal="20dp"
                                 android:text="TextView" />
                         </LinearLayout>
 
@@ -284,7 +286,7 @@
 
                     <androidx.cardview.widget.CardView
                         android:layout_width="300dp"
-                        android:layout_height="200dp"
+                        android:layout_height="300dp"
                         android:layout_gravity="center"
                         android:layout_marginTop="30dp"
                         android:background="@drawable/rounded_theme"
@@ -301,7 +303,6 @@
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="16dp"
                                 android:layout_marginTop="10dp"
-                                android:layout_marginEnd="16dp"
                                 android:text="TextView" />
 
                             <EditText
@@ -309,7 +310,6 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="16dp"
-                                android:layout_marginTop="10dp"
                                 android:layout_marginEnd="16dp"
                                 android:hint="@string/tinggi"
                                 android:inputType="number"></EditText>
@@ -392,8 +392,8 @@
                         app:cardCornerRadius="4dp">
 
                         <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
+                            android:layout_width="300dp"
+                            android:layout_height="600dp"
                             android:orientation="vertical">
 
                             <TextView
@@ -401,7 +401,6 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="16dp"
-                                android:layout_marginTop="24dp"
                                 android:layout_marginEnd="16dp"
                                 android:text="TextView"></TextView>
 
@@ -409,7 +408,6 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="16dp"
-                                android:layout_marginTop="10dp"
                                 android:layout_marginEnd="16dp">
 
                                 <RadioButton
@@ -435,8 +433,7 @@
                                 android:id="@+id/spinner7"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_marginStart="32dp"
-                                android:layout_marginEnd="32dp" />
+                                android:paddingHorizontal="20dp" />
 
 
                         </LinearLayout>
@@ -452,8 +449,8 @@
                         app:cardCornerRadius="4dp">
 
                         <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
+                            android:layout_width="300dp"
+                            android:layout_height="500dp"
                             android:orientation="vertical">
 
                             <TextView

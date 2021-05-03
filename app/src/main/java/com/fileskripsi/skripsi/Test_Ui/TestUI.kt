@@ -452,8 +452,6 @@ class TestUI : AppCompatActivity(), View.OnClickListener, AdapterView.OnItemSele
 
                     dataCombine = nlistcfcombine[j]  +Cf_New_data[j]*(1-nlistcfcombine[j])
                     dataCombine1 = nlistcfcombine[j] + dataCombine *(1-nlistcfcombine[j])
-
-
                    // hasil_hitung.add(df.format(dataCombine1).toDouble())
                     hasil_hitung.add(dataCombine1)
 
@@ -476,9 +474,6 @@ class TestUI : AppCompatActivity(), View.OnClickListener, AdapterView.OnItemSele
             startActivity(Intent)
         }
         else if (qty.isNotEmpty()) {
-
-            //Toast.makeText(this, "Jawaban Anda Kurang Sesuai ", Toast.LENGTH_SHORT).show()
-
             val alertnotifDialog = AlertDialog.Builder(this)
                     .setTitle("Hasil Diagnosa")
                     .setMessage("Anda Bukan termasuk resiko Rendah")
