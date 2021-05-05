@@ -29,11 +29,8 @@ class TestUI : AppCompatActivity(), View.OnClickListener, AdapterView.OnItemSele
     private lateinit var jumlahbtg: EditText
     private lateinit var LDl: EditText
     private lateinit var Tensi: EditText
-    private lateinit var radioButtondata: RadioButton
     private lateinit var Submit: Button
     lateinit var chb: CheckBox
-    lateinit var genderradio: RadioButton
-    lateinit var genderradio1: RadioButton
     private lateinit var answerSheets1: MutableList<AnswerSheets>
     private lateinit var berat_badan: EditText
     private lateinit var tinggi_badan: EditText
@@ -42,7 +39,6 @@ class TestUI : AppCompatActivity(), View.OnClickListener, AdapterView.OnItemSele
     private lateinit var CF_list: MutableList<Cf_Class>
     private lateinit var CF_Data: MutableList<Cf_hitung>
     private lateinit var CF_Data1: MutableList<Cf_hitung>
-   // private lateinit var CF_Data2: MutableList<MedAns>
     var dbRef: DatabaseReference? =null
     var database1:FirebaseDatabase? = null
     lateinit var auth: FirebaseAuth
@@ -77,7 +73,6 @@ class TestUI : AppCompatActivity(), View.OnClickListener, AdapterView.OnItemSele
         Submit.setOnClickListener(this)
         Cf_data()
         Instruction()
-
     }
     private fun Instruction(){
         val x = "Petunjuk penggunaan"
@@ -88,7 +83,6 @@ class TestUI : AppCompatActivity(), View.OnClickListener, AdapterView.OnItemSele
         TV_Instruction.text = z
 
     }
-
     private fun question_List() {
         val ref = FirebaseDatabase.getInstance().getReference("/Database_Risk_Factor/Question")
         ref.addListenerForSingleValueEvent(object : ValueEventListener {
@@ -329,7 +323,6 @@ class TestUI : AppCompatActivity(), View.OnClickListener, AdapterView.OnItemSele
         Backward().backward(x.Smoke, BackwardlowChecker(jumlah_batang), x.Ldl, x.Tensi, x.bmi, x.Umur, x.Gender, x.diabetes, x.Sport, x.stressval, x.Cf)
 
     }
-
     override fun onClick(v: View?) {
         answerSheets_data()
     }
@@ -359,7 +352,6 @@ class TestUI : AppCompatActivity(), View.OnClickListener, AdapterView.OnItemSele
         spinner9.onItemSelectedListener = this
 
     }
-
     override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
         var nlistSpinner = mutableListOf<Double>()
         var cf1 = binding?.spinner?.selectedItem.toString().trim()
@@ -392,12 +384,9 @@ class TestUI : AppCompatActivity(), View.OnClickListener, AdapterView.OnItemSele
                 nlistSpinner[7],
                 nlistSpinner[8])
     }
-
     override fun onNothingSelected(parent: AdapterView<*>?) {
         TODO("Not yet implemented")
     }
-
-
     private fun CertainFactor(cf1:Double,cf2: Double,cf3:Double,cf4: Double,cf5:Double,cf6: Double,cf7:Double,cf8: Double,cf9: Double){
         var CfTampil: Double
         var CfTampil1: Double
@@ -466,7 +455,6 @@ class TestUI : AppCompatActivity(), View.OnClickListener, AdapterView.OnItemSele
         hasil= listOf(CfTampil)
         println("hasil CF : " +hasil)
     }
-
     private fun BackwardlowChecker(qty:String):String{
         if (qty.isEmpty())
         {
