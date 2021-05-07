@@ -8,6 +8,7 @@ import com.fileskripsi.skripsi.LoginRegistUI.loginRegist
 import com.fileskripsi.skripsi.R
 import com.fileskripsi.skripsi.Backward_Session.Menu_test
 import com.fileskripsi.skripsi.Bmi_Calculator.Calculator_bmi
+import com.fileskripsi.skripsi.Extras.TipsActivity
 import com.fileskripsi.skripsi.Res_test
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
@@ -47,7 +48,7 @@ class homeUI : AppCompatActivity() {
             startActivity(Intent)
         }
         button3.setOnClickListener {
-            val Intent = Intent(this@homeUI, Res_test::class.java)
+            val Intent = Intent(this@homeUI, TipsActivity::class.java)
             startActivity(Intent)
         }
         button4.setOnClickListener{

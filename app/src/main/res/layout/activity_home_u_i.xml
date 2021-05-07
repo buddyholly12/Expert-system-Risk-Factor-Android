@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".HomeUI.homeUI"
-    android:background="#24D1DC">
+    android:background="#66dfe7">
 
     <RelativeLayout
         android:id="@+id/relatives"
@@ -14,7 +14,7 @@
         android:layout_marginLeft="30dp"
         android:layout_marginTop="70dp"
         android:layout_marginRight="30dp"
-        android:background="@drawable/rounded_theme"
+        android:background="@drawable/roundthemev3"
         android:elevation="4dp"
         android:orientation="vertical"
         android:padding="20dp">
@@ -81,13 +81,14 @@
                         android:fontFamily="sans-serif-black"
                         android:textSize="10sp"/>
                 </TableRow>
+
                 <Button
-                    android:drawableLeft="@drawable/ic_baseline_close_24"
-                    android:text="logout"
                     android:id="@+id/logout_button"
+                    android:drawableLeft="@drawable/ic_baseline_close_24"
                     android:fontFamily="sans-serif-black"
+                    android:text="logout"
                     android:textSize="45px"
-                    ></Button>
+                    app:strokeColor="#1CA8B1"></Button>
 
             </TableLayout>
         </LinearLayout>
@@ -111,6 +112,7 @@
             android:layout_marginEnd="63dp"
             android:background="@drawable/rounded_button"
             android:text="@string/Tips"
+            android:textSize="12sp"
             app:layout_constraintEnd_toStartOf="@+id/button2"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
@@ -126,6 +128,7 @@
             android:layout_marginEnd="63dp"
             android:background="@drawable/rounded_button"
             android:text="@string/Start"
+            android:textSize="12sp"
             app:layout_constraintEnd_toStartOf="@+id/button2"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
@@ -140,6 +143,7 @@
             android:layout_marginEnd="40dp"
             android:background="@drawable/rounded_button"
             android:text="@string/history"
+            android:textSize="12sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -152,6 +156,7 @@
             android:layout_marginEnd="40dp"
             android:background="@drawable/rounded_button"
             android:text="@string/BmiCal"
+            android:textSize="12sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 

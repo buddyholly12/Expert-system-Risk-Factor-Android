@@ -5,25 +5,235 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Extras.TipsActivity"
-    android:background="#24D1DC">
+    android:background="#19939b">
 
     <RelativeLayout
         android:id="@+id/relatives"
         android:layout_width="345dp"
-        android:layout_height="559dp"
+        android:layout_height="650dp"
         android:layout_marginLeft="30dp"
         android:layout_marginTop="70dp"
         android:layout_marginRight="30dp"
-        android:background="@drawable/rounded_theme"
+        android:background="@drawable/roundthemev2"
         android:elevation="4dp"
         android:orientation="vertical"
         android:padding="50dp">
 
-        <TextView
-            android:id="@+id/textView"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="TextView" />
+            android:orientation="vertical">
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="30dp"
+                        android:background="@drawable/rounded_theme"
+                        app:cardCornerRadius="4dp"
+                        app:cardBackgroundColor="#20bdc7">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical"></LinearLayout>
+
+                        <TextView
+                            android:id="@+id/TVtitle"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="sans-serif-black"
+                            android:gravity="center"
+                            android:text="@string/Tipstrick" />
+
+                    </androidx.cardview.widget.CardView>
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="30dp"
+                        android:background="@drawable/rounded_theme"
+                        app:cardCornerRadius="4dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical"></LinearLayout>
+
+                        <ScrollView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:id="@+id/TVtitle2"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:fontFamily="sans-serif-black"
+                                    android:gravity="center"
+                                    android:text="@string/intro"
+                                    android:background="#20bdc7"/>
+                            </LinearLayout>
+                        </ScrollView>
+
+                    </androidx.cardview.widget.CardView>
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="30dp"
+                        android:background="@drawable/rounded_theme"
+                        app:cardCornerRadius="4dp">
+
+
+                        <TextView
+                            android:id="@+id/TVtitle3"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="sans-serif-black"
+                            android:gravity="center"
+                            android:paddingEnd="20dp"
+                            android:text="@string/Deskripsi"
+                            android:background="#20bdc7"/>
+                    </androidx.cardview.widget.CardView>
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="30dp"
+                        android:background="@drawable/rounded_theme"
+                        app:cardCornerRadius="4dp">
+
+
+                        <TextView
+                            android:id="@+id/TVtitle4"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="sans-serif-black"
+                            android:gravity="center"
+                            android:paddingEnd="20dp"
+                            android:text="@string/DEskripsi1"
+                            android:background="#20bdc7"/>
+                    </androidx.cardview.widget.CardView>
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="30dp"
+                        android:background="@drawable/rounded_theme"
+                        app:cardCornerRadius="4dp">
+
+
+                        <TextView
+                            android:id="@+id/TVtitle5"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="sans-serif-black"
+                            android:gravity="center"
+                            android:paddingEnd="20dp"
+                            android:text="@string/deskripsi2"
+                            android:background="#20bdc7"/>
+                    </androidx.cardview.widget.CardView>
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="30dp"
+                        android:background="@drawable/rounded_theme"
+                        app:cardCornerRadius="4dp">
+
+
+                        <TextView
+                            android:id="@+id/TVtitle6"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="sans-serif-black"
+                            android:gravity="center"
+                            android:paddingEnd="20dp"
+                            android:text="@string/deskripsi3"
+                            android:background="#20bdc7"/>
+                    </androidx.cardview.widget.CardView>
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="30dp"
+                        android:background="@drawable/rounded_theme"
+                        app:cardCornerRadius="4dp">
+
+
+                        <TextView
+                            android:id="@+id/TVtitle7"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="sans-serif-black"
+                            android:gravity="center"
+                            android:paddingEnd="20dp"
+                            android:text="@string/deskripsi4"
+                            android:background="#20bdc7"/>
+                    </androidx.cardview.widget.CardView>
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="30dp"
+                        android:background="@drawable/rounded_theme"
+                        app:cardCornerRadius="4dp">
+
+
+                        <TextView
+                            android:id="@+id/TVtitle8"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="sans-serif-black"
+                            android:gravity="center"
+                            android:paddingEnd="20dp"
+                            android:text="@string/deskripsi5"
+                            android:background="#20bdc7"/>
+
+                    </androidx.cardview.widget.CardView>
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="30dp"
+                        android:background="@drawable/rounded_theme"
+                        app:cardCornerRadius="4dp">
+
+
+                        <TextView
+                            android:id="@+id/TVtitle9"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="sans-serif-black"
+                            android:gravity="center"
+                            android:paddingEnd="20dp"
+                            android:text="@string/source"
+                            android:background="#20bdc7"/>
+
+                    </androidx.cardview.widget.CardView>
+
+                </LinearLayout>
+            </ScrollView>
+
+        </LinearLayout>
+
     </RelativeLayout>
 
 </RelativeLayout>

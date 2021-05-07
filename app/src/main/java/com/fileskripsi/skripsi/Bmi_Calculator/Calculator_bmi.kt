@@ -18,6 +18,7 @@ class Calculator_bmi : AppCompatActivity(), View.OnClickListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_calculator_bmi)
+        supportActionBar?.hide()
         checker.setOnClickListener(this)
     }
 

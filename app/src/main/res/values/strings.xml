@@ -35,4 +35,35 @@
     <string name="login1">Login</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="Deskripsi">
+- Menerapkan pola makan yang sehat.
+Kurangi menyantap makanan yang digoreng yang banyak mengandung lemak jenuh tinggi. Jangan tertalu banyak mengkonsumsi karbohirat, karena dalam tubuh, karbohidrat akan dipecah menjadi lemak. Perbanyak makan buah, sayuran dan biji-bijian yang mengandung antioksidan tinggi,  antioksidan mencegah lemak jenuh berubah menjadi kolesterol.
+</string>
+    <string name="DEskripsi1">- Menjaga berat badan ideal.
+Seseorang dengan obesitas tengah yang memiliki lingkar pinggang lebih dari 80 cm, berisiko lebih besar terkena penyakit jantung koroner. Kelebihan berat badan juga dapat meningkatkan faktor risiko terjadinya tekanan darah tinggi dan kadar kolesterol darah tinggi. </string>
+    <string name="deskripsi2">- Berhenti merokok.
+Risiko terjadinya penyakit jantung koroner meningkat 2-4 kali pada perokok dibandingkan dengan bukan perokok. Risiko ini meningkat dengan bertambahnya usia dan jumlah rokok yang diisap. Perlu diketahui bahwa risiko kematian berkurang dengan 50 % pada tahun pertama sesudah rokok dihentikan.
+</string>
+    <string name="deskripsi3"> - Hindari stres.
+Saat seseorang mengalami stres, tubuhnya akan mengeluarkan hormon cortisol yang menyebabkan pembuluh darah menjadi kaku, hormon norepinephrine juga akan diproduksi tubuh saat menderita stres, yang akan mengakibatkan naiknya tekanan darah.
+</string>
+    <string name="deskripsi4">- Hindari stres.
+Saat seseorang mengalami stres, tubuhnya akan mengeluarkan hormon cortisol yang menyebabkan pembuluh darah menjadi kaku, hormon norepinephrine juga akan diproduksi tubuh saat menderita stres, yang akan mengakibatkan naiknya tekanan darah.
+</string>
+    <string name="deskripsi5">- Olahraga secara teratur.
+Olahraga seperti berjalan kaki, jalan cepat, atau jogging secara teratur selama 30 menit setiap hari, 3-4 kali seminggu dapat memperkuat jantung, melancarkan peredaran darah ke seluruh tubuh, membakar lemak dan menjaga kesimbangan HDL dan LDL.
+“ Sayangilah jantung anda mulai dari sekarang,kesehatan jantung ada di tangan anda mencegah lebih baik dari pada mengobati"</string>
+    <string name="intro">
+        Penyakit Jantung Koroner (PJK) merupakan penyebab kematian nomor satu di Negara yang sudah maju. Di Indonesia, kejadian PJK pada tahun-tahun terakhir ini juga cenderung meningkat .
+        Hal ini erat hubungannya dengan peningkatan taraf hidup masyarakat serta perubahan pola makanan.
+        Penyakit jantung koroner adalah terjadinya penyumbatan sebagian atau total dari satu atau lebih
+        pembuluh darah koroner yang diawali dengan penimbunan lemak pada lapisan-lapisan pembuluh darah tersebut .
+        Penyumbatan pembuluh darah koroner terjadi akibat adanya proses aterosklerosis (perkapuran),
+        proses aterosklerosis sebenarnya sudah dimulai sejak masa kanak-kanak, akan tetapi baru manifes pada usia dewasa,
+        pertengahan atau lanjut. Selain proses aterosklerosis, ada juga proses lain, yakni spasme (penyempitan) pembuluh darah koroner
+        tanpa adanya kelainan anatomis, yang secara tersendiri atau bersama-sama memberikan gejala iskemia.
+    </string>
+    <string name="Tipstrick">Cara Mencegah Penyakit Jantung Koroner </string>
+    <string name="source"> Sumber : https://www.pjnhk.go.id/artikel/mencegah-penyakit-jantung-koroner-pjk-sebuah-investasi-mahal</string>
+
 </resources>
