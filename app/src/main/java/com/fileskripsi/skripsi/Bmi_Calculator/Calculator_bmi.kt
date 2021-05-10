@@ -33,7 +33,8 @@ class Calculator_bmi : AppCompatActivity(), View.OnClickListener {
         df.roundingMode = RoundingMode.CEILING
         val bmi1 = bmi.roundToInt()
         Log.d("bmi", bmi.toString())
-        Tv_results.text = df.format(bmi).toDouble().toString()
+        val results =(df.format(bmi).toDouble().toString())
+        Tv_results.text = results.toString()
 
     }
 
