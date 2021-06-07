@@ -6,9 +6,11 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.Button
 import android.widget.Toast
+import androidx.coordinatorlayout.widget.CoordinatorLayout
 import com.fileskripsi.skripsi.HomeUI.homeUI
 import com.fileskripsi.skripsi.R
 import com.fileskripsi.skripsi.RegistUI.RegistUI
+import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.activity_login_regist.*
 
@@ -29,8 +31,9 @@ class loginRegist : AppCompatActivity() {
         btn_login.setOnClickListener{
             if (email.text.toString().trim().isNotEmpty()|| Passwords.text.toString().trim().isNotEmpty()) {
                 loginfunction(email.text.toString(),Passwords.text.toString().trim())
+                Toast.makeText(applicationContext, "Login Sukses", Toast.LENGTH_LONG).show()
             }else{
-                Toast.makeText(applicationContext, "input data ", Toast.LENGTH_SHORT).show()
+                Toast.makeText(applicationContext, "Harap isi data terlebih dahulu ", Toast.LENGTH_LONG).show()
             }
 
         }

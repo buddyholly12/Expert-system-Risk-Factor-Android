@@ -30,6 +30,7 @@
         <item>0.4</item>
         <item>0.6</item>
         <item>0.8</item>
+        <item>1.0</item>
     </string-array>
     <string name="login">Apakah anda sudah memiliki Akun ?</string>
     <string name="login1">Login</string>
@@ -65,5 +66,6 @@ Olahraga seperti berjalan kaki, jalan cepat, atau jogging secara teratur selama 
     </string>
     <string name="Tipstrick">Cara Mencegah Penyakit Jantung Koroner </string>
     <string name="source"> Sumber : https://www.pjnhk.go.id/artikel/mencegah-penyakit-jantung-koroner-pjk-sebuah-investasi-mahal</string>
-
+<string name="menu_desc">   Silahkan memilih terlebih dahulu
+                            mengenai Resiko Penyakit Jantung Koroner : </string>
 </resources>

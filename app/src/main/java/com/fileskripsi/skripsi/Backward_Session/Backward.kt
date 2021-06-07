@@ -17,6 +17,7 @@ class Backward {
                  , Gender:String, diabetes:String, Sport: String, stressval:String, Cf:Double) {
 
         val ref1 = FirebaseDatabase.getInstance().getReference("Client_Ans")
+        val ref2 = FirebaseDatabase.getInstance().getReference("Data_Hasil_diagnosa")
         var sb = StringBuilder()
         var sb1 = StringBuilder()
         var sb2 = StringBuilder()
@@ -64,6 +65,7 @@ class Backward {
             Log.d("test",taskid)
             val dataBackward = AnswerSheets(taskid.toString(),Smoke,smoke_qty,Ldl,Tensi,bmi,Umur,Gender,diabetes,Sport,stressval,Cf,sb.toString(),sb1.toString(),sb2.toString())
             ref1.child(datauser.toString()).child(taskid).setValue(dataBackward)
+
         }
 
     }
@@ -96,7 +98,7 @@ class Backward {
             if (Sport == "Jarang" && diabetes == "Ya") {
                 flag
             }
-            if (stressval == "Ya" && Cf in 41.0 rangeTo(69.0)) {
+            if (stressval == "Ya" && Cf in 41.0 rangeTo(78.0)) {
                 flag
                 val results = "Resiko Sedang "
                 sb1.append("berdasarkan data yang anda inputkan anda memiliki resiko Sedang $Cf %")
@@ -150,7 +152,7 @@ class Backward {
             if (Sport == "Tidak" && diabetes == "Ya") {
                 flag
             }
-            if (stressval == "Ya" && Cf in 41.0 rangeTo(69.0)) {
+            if (stressval == "Ya" && Cf in 41.0 rangeTo(78.0)) {
                 flag
                 val results = "Resiko Tinggi "
                 sb1.append("berdasarkan data yang anda inputkan anda memiliki resiko Tinggi $Cf %")

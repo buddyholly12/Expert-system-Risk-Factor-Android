@@ -59,9 +59,10 @@ class RegistUI : AppCompatActivity(){
         Regist.setOnClickListener {
             if (email.text.toString().trim().isNotEmpty()|| Password.text.toString().trim().isNotEmpty()){
                 createUser(email.text.toString().trim(),Password.text.toString().trim())
+                Toast.makeText(applicationContext, "Register  Sukses", Toast.LENGTH_LONG).show()
             }
             else{
-                Toast.makeText(applicationContext, "input data ", Toast.LENGTH_SHORT).show()
+                Toast.makeText(applicationContext, "Harap isi data terlebih dahulu ", Toast.LENGTH_LONG).show()
             }
         }
         Loginbutt.setOnClickListener({
@@ -84,6 +85,7 @@ class RegistUI : AppCompatActivity(){
                 finish()
             }
             else{
+                Toast.makeText(applicationContext, "Failed Register"+task.exception, Toast.LENGTH_LONG).show()
                 Log.e("Task message ", "Failed Register"+task.exception);
             }
         }

@@ -81,7 +81,7 @@ class Medium_Checker : AppCompatActivity(), AdapterView.OnItemSelectedListener, 
     private fun Instruction(){
         val x = "Petunjuk penggunaan"
         val y = "Certainty factor merupakan metode yang mendefinisikan ukuran kepastian terhadap fakta atau aturan untuk menggambarkan keyakinan seorang pakar terhadap masalah yang sedang dihadapi"
-        val z = "\t Tingkatan Certainty factor pada aplikasi ini terdiri dari :\n 1. 0.0 -> tidak terisi \n 2. 0.4 -> mungkin \n 3. 0.6 -> kemungkinan besar \n 4. 0.8 -> hampir pasti "
+        val z = "\t Tingkatan Certainty factor pada aplikasi ini terdiri dari :\n 1. 0.0 -> tidak terisi \n 2. 0.4 -> mungkin \n 3. 0.6 -> kemungkinan besar \n 4. 0.8 -> hampir pasti \n 1.0 -> Pasti"
         Tv_Instruction2.text = x
         Tv_instruction1.text = y
         TV_Instruction.text = z

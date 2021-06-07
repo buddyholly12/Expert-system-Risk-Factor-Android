@@ -12,25 +12,25 @@
         android:layout_width="222dp"
         android:layout_height="67dp"
         android:layout_marginStart="94dp"
-        android:layout_marginTop="144dp"
         android:layout_marginEnd="95dp"
+        android:layout_marginBottom="16dp"
         android:text="Rendah"
+        app:layout_constraintBottom_toTopOf="@+id/Sedang_quiz"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/Sedang_quiz"
         android:layout_width="222dp"
         android:layout_height="67dp"
         android:layout_marginStart="94dp"
-        android:layout_marginTop="40dp"
         android:layout_marginEnd="95dp"
+        android:layout_marginBottom="10dp"
         android:text="Sedang"
+        app:layout_constraintBottom_toTopOf="@+id/TInggi_quiz"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/rendah_quiz" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/TInggi_quiz"
@@ -38,9 +38,25 @@
         android:layout_height="67dp"
         android:layout_marginStart="94dp"
         android:layout_marginEnd="95dp"
-        android:layout_marginBottom="318dp"
+        android:layout_marginBottom="360dp"
         android:text="Tinggi"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="313dp"
+        android:layout_height="73dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="48dp"
+        android:fontFamily="sans-serif-black"
+        android:text="@string/menu_desc"
+        android:textAlignment="center"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
