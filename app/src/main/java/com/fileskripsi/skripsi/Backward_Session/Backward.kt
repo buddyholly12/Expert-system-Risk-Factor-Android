@@ -42,7 +42,7 @@ class Backward {
             if (Sport == "Rutin" && diabetes == "Tidak") {
                 flag
             }
-            if (stressval == "Tidak" && Cf in 41.0 rangeTo(69.0)) {
+            if (stressval == "Tidak" && Cf <=90.0) {
                 flag
                 val results = " Resiko rendah"
                 sb1.append("berdasarkan data yang anda inputkan anda memiliki resiko rendah")
@@ -98,7 +98,7 @@ class Backward {
             if (Sport == "Jarang" && diabetes == "Ya") {
                 flag
             }
-            if (stressval == "Ya" && Cf in 41.0 rangeTo(78.0)) {
+            if (stressval == "Ya" && Cf <=95.0) {
                 flag
                 val results = "Resiko Sedang "
                 sb1.append("berdasarkan data yang anda inputkan anda memiliki resiko Sedang $Cf %")
@@ -152,7 +152,7 @@ class Backward {
             if (Sport == "Tidak" && diabetes == "Ya") {
                 flag
             }
-            if (stressval == "Ya" && Cf in 41.0 rangeTo(78.0)) {
+            if (stressval == "Ya" && Cf <=98.0) {
                 flag
                 val results = "Resiko Tinggi "
                 sb1.append("berdasarkan data yang anda inputkan anda memiliki resiko Tinggi $Cf %")
