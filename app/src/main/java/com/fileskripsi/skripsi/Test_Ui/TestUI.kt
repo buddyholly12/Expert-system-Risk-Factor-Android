@@ -344,11 +344,8 @@ class TestUI : AppCompatActivity(), View.OnClickListener, AdapterView.OnItemSele
         spinner6.onItemSelectedListener = this
         spinner7.adapter =arrayAdapter
         spinner7.onItemSelectedListener = this
-        spinner8.adapter =arrayAdapter
-        spinner8.onItemSelectedListener = this
         spinner9.adapter =arrayAdapter
         spinner9.onItemSelectedListener = this
-
 
     }
     override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
@@ -360,16 +357,16 @@ class TestUI : AppCompatActivity(), View.OnClickListener, AdapterView.OnItemSele
         var cf5 = binding?.spinner5?.selectedItem.toString()
         var cf6 = binding?.spinner6?.selectedItem.toString()
         var cf7 = binding?.spinner7?.selectedItem.toString()
-        var cf8 = binding?.spinner8?.selectedItem.toString()
         var cf9 = binding?.spinner9?.selectedItem.toString()
+
         nlistSpinner.add(cf1.toDouble())
         nlistSpinner.add(cf2.toDouble())
         nlistSpinner.add(cf3.toDouble())
         nlistSpinner.add(cf5.toDouble())
         nlistSpinner.add(cf6.toDouble())
         nlistSpinner.add(cf7.toDouble())
-        nlistSpinner.add(cf8.toDouble())
         nlistSpinner.add(cf9.toDouble())
+
 
         CertainFactor(
             nlistSpinner[0],
@@ -379,14 +376,14 @@ class TestUI : AppCompatActivity(), View.OnClickListener, AdapterView.OnItemSele
             nlistSpinner[4],
             nlistSpinner[5],
             nlistSpinner[6],
-            nlistSpinner[7]
+
         )
     }
     override fun onNothingSelected(parent: AdapterView<*>?) {
         TODO("Not yet implemented")
     }
 
-    private fun CertainFactor(cf1:Double,cf2: Double,cf3:Double,cf4:Double,cf5: Double,cf6:Double,cf7: Double,cf8: Double){
+    private fun CertainFactor(cf1:Double,cf2: Double,cf3:Double,cf4:Double,cf5: Double,cf6:Double,cf7: Double){
         var CfTampil: Double
         var CfTampil1: Double
         var CF_rule :Double
@@ -399,9 +396,9 @@ class TestUI : AppCompatActivity(), View.OnClickListener, AdapterView.OnItemSele
         var hasil_hitung = mutableListOf<Double>()
         var nlistcfcombine = ArrayList<Double>()
         var dataCombine: Double
-        val listMB = listOf<Double>(1.0, 0.8, 0.5, 0.4, 0.8,0.5 , 0.6, 0.7)
-        val listMD = listOf<Double>(0.4, 0.4, 0.6, 0.5, 0.6,0.6 , 0.6, 0.4)
-        var x = listOf(cf1, cf2, cf3, cf4, cf5, cf6, cf7, cf8)
+        val listMB = listOf<Double>(1.0, 0.8, 0.5, 0.4, 0.8,0.5 , 0.6)
+        val listMD = listOf<Double>(0.4, 0.4, 0.6, 0.5, 0.6,0.6 , 0.6)
+        var x = listOf(cf1, cf2, cf3, cf4, cf5, cf6, cf7)
         for (i in listMB.indices)
         {
             for (j in listMD.indices)
@@ -450,7 +447,7 @@ class TestUI : AppCompatActivity(), View.OnClickListener, AdapterView.OnItemSele
             }
         }
 
-        CfTampil1 = hasil_hitung[7]*100
+        CfTampil1 = hasil_hitung[6]*100
         CfTampil = CfTampil1.roundToInt().toDouble()
         println(" hasil Hitung :" + CfTampil)
         println("CF_Combine hitung  = $hasil_hitung")
